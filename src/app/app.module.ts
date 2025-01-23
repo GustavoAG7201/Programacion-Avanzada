@@ -10,6 +10,14 @@ import { FooterComponent } from './footer/footer.component';
 import { InicioComponent } from './content/inicio/inicio.component';
 import { PortafolioComponent } from './content/portafolio/portafolio.component';
 
+import { RouterModule, Routes } from '@angular/router'; 
+
+const appRoutes: Routes = [
+  {path: '', component:InicioComponent},
+  {path: 'inicio', component:InicioComponent},
+  {path: 'portafolio', component: PortafolioComponent}
+]
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -22,7 +30,8 @@ import { PortafolioComponent } from './content/portafolio/portafolio.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    RouterModule.forRoot(appRoutes,{enableTracing:true})
   ],
   providers: [],
   bootstrap: [AppComponent]
