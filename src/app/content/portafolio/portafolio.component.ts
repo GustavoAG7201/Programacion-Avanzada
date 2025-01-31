@@ -18,6 +18,8 @@ export class PortafolioComponent {
   resultado_resta!:number
   resultado_multi!:number
   resultado_div!:number
+  gfarenheit!: number
+  gcelsius!:number
 
   // 2. Metodos
   //* Este metodo se ejecuta al momento de iniciar la pagina
@@ -55,6 +57,8 @@ export class PortafolioComponent {
     //*Division
     this.resultado_div = this.num1 / this.num2
 
+    this.gfarenheit = 90
+    this.gcelsius = (this.gfarenheit - 32) * 5/9
 
 
   }
