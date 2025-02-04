@@ -20,6 +20,10 @@ export class PortafolioComponent {
   resultado_div!:number
   gfarenheit!: number
   gcelsius!:number
+  genero!: string
+  mensaje_genero!:string
+  calificacion!:number
+  resultado_calificacion!: string
 
   // 2. Metodos
   //* Este metodo se ejecuta al momento de iniciar la pagina
@@ -28,8 +32,8 @@ export class PortafolioComponent {
     this.nombre = "Gustavo"
     this.apellido = "Alonso"
     this.nombre_completo = "Bienvenido! " + this.nombre + " " + this.apellido + "!"
-
     this.texto = "Hola mundo!"
+    this.genero = "hombre"
     // console.log(this.texto)
 
 
@@ -57,9 +61,40 @@ export class PortafolioComponent {
     //*Division
     this.resultado_div = this.num1 / this.num2
 
+    //* Convertir grados farenheit a celcius
     this.gfarenheit = 90
     this.gcelsius = (this.gfarenheit - 32) * 5/9
 
+    //*Mostrar un mensaje dependiendo el genero
+    if (this.genero == 'hombre') {
+      this.mensaje_genero = "Bienvenido al curso!"
+    }
 
+    if (this.genero == 'mujer'){
+      this.mensaje_genero = "Bienvenida al curso!"
+    }
+
+    //*Pedir una calificacion y mostrar un mensaje segun la nota
+
+    this.calificacion = 100
+
+    if(this.calificacion >= 0 &&  this.calificacion <= 30){
+      this.resultado_calificacion = "Muy ineficiente"
+    }
+    else if(this.calificacion >= 31 && this.calificacion <= 50 ){
+      this.resultado_calificacion = "Insuficiente"
+    }
+    else if(this.calificacion >= 51 && this.calificacion <= 60 ){
+      this.resultado_calificacion = "Suficiente"
+    }
+    else if(this.calificacion >= 61 && this.calificacion <= 70 ){
+      this.resultado_calificacion = "Bien"
+    }
+    else if(this.calificacion >= 71 && this.calificacion <= 90 ){
+      this.resultado_calificacion = "Notable"
+    }
+    else if(this.calificacion >= 91 && this.calificacion <= 100 ){
+      this.resultado_calificacion = "Sobresaliente"
+    }
   }
 }
