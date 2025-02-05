@@ -2,79 +2,145 @@
 <!-- <p class="fw-bold text-danger">{{texto}}</p> -->
 
 <table class="table">
-    <thead>
-      <tr>
-        <th scope="col" colspan="3%" class="text-center display-6 table-dark">Mi portafolio</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td  class="text-center col-4 h3 table-dark" >Tema</td>
-        <td class="text-center col-4 h3  table-dark">Descripcion</td>
-        <td class="text-center col-md-4 h3  table-dark">Resultado</td>
-      </tr>
-      <tr>
-        <td  class="text-center col-4 bg-danger" >1. Uso de variables</td> 
-        <td class="text-center col-4 bg-danger">Recibe un texto y lo muestra en pantalla</td>
-        <td  class="text-center col-4 bg-info" >{{texto}}</td>
-      </tr>
-      <tr>
-        <td  class="text-center col-4 bg-danger" >2. Combinaciones</td> 
-        <td class="text-center col-4 bg-danger">Recibe nombre y apellidos para concatenarlos</td>
-        <td  class="text-center col-4 bg-info" >{{nombre_completo}}</td>
-      </tr>
-      <tr>
-        <td  class="text-center col-4 bg-danger" >3. Suma</td> 
-        <td class="text-center col-4 bg-danger">Recibe dos numeros y realiza una suma</td>
-        <td  class="text-center col-4 bg-info" > El resultado de sumar: {{num1}} + {{num2}} = {{resultado_suma}}</td>
-      </tr>
-      <tr>
-        <td  class="text-center col-4 bg-danger" >4. Resta</td> 
-        <td class="text-center col-4 bg-danger">Recibe dos numeros y realiza una resta</td>
-        <td  class="text-center col-4 bg-info" > El resultado de restar: {{num1}} - {{num2}} = {{resultado_resta}}</td>
-      </tr>
-      <tr>
-        <td  class="text-center col-4 bg-danger" >5. Multiplicacion</td> 
-        <td class="text-center col-4 bg-danger">Recibe dos numeros y realiza una multiplicacion</td>
-        <td  class="text-center col-4 bg-info" > El resultado de multiplicar: {{num1}} x {{num2}} = {{resultado_multi}}</td>
-      </tr>
-      <tr>
-        <td  class="text-center col-4 bg-danger" >6. Division</td> 
-        <td class="text-center col-4 bg-danger">Recibe dos numeros y realiza una division</td>
-        <td  class="text-center col-4 bg-info" > El resultado de dividir: {{num1}} ÷ {{num2}} = {{resultado_div}}</td>
-      </tr>
-      <tr>
-        <td  class="text-center col-4 bg-danger" >7. Convertir grados farenheit a celcius</td> 
-        <td class="text-center col-4 bg-danger">Agrega una variable en la cual asignes un valor con la temperatura en grados farenheit y en otra variable nos de la conversion en grados celcius</td>
-        <td  class="text-center col-4 bg-info" >Tus grados farenheit: {{gfarenheit}} convertidos a celcius son: {{gcelsius}} </td>
-      </tr>
-      <tr>
-        <td  class="text-center col-4 bg-danger" >9. Condicionales</td> 
-        <td class="text-center col-4 bg-danger"> A. Solicitar al usuario su genero, dependiendo de su eleccion mostrar un mensaje</td>
-        <td  class="text-center col-4 bg-info" > {{mensaje_genero}} </td>
-      </tr>
-      <tr>
-        <td  class="text-center col-4 bg-danger" > 10. Calificaciones </td>
-        <td class="text-center col-4 bg-danger"> B. Solicitar al usuario una calificacion del 0-100. Mostrar un mensaje segun la nota</td>
-        <td  class="text-center col-4 bg-info" > {{resultado_calificacion}} </td>
-      </tr>
-      <tr>
-        <td  class="text-center col-4 bg-danger" > 10. Seleccion de operaciones </td>
-        <td class="text-center col-4 bg-danger"> C. Solicitar dos numeros al usuario (por meedio de un formulario) y darles la opcion de sumar, restar, multiplicar y dividir dichos numeros ademas mostrar el resultado</td>
-        <td  class="text-center col-4 bg-info" >
-          <div class="form-group col-md-2">
-            <label for="inputnum1">Primer numero</label>
-            <input type="text" class="form-control" id="inputnum1">
+  <thead>
+    <tr>
+      <th scope="col" colspan="3%" class="text-center display-6 table-dark">
+        Mi portafolio
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td class="text-center col-4 h3 table-dark">Tema</td>
+      <td class="text-center col-4 h3 table-dark">Descripcion</td>
+      <td class="text-center col-md-4 h3 table-dark">Resultado</td>
+    </tr>
+    <tr>
+      <td class="text-center col-4 bg-danger">1. Uso de variables</td>
+      <td class="text-center col-4 bg-danger">
+        Recibe un texto y lo muestra en pantalla
+      </td>
+      <td class="text-center col-4 bg-info">{{ texto }}</td>
+    </tr>
+    <tr>
+      <td class="text-center col-4 bg-danger">2. Combinaciones</td>
+      <td class="text-center col-4 bg-danger">
+        Recibe nombre y apellidos para concatenarlos
+      </td>
+      <td class="text-center col-4 bg-info">{{ nombre_completo }}</td>
+    </tr>
+    <tr>
+      <td class="text-center col-4 bg-danger">3. Suma</td>
+      <td class="text-center col-4 bg-danger">
+        Recibe dos numeros y realiza una suma
+      </td>
+      <td class="text-center col-4 bg-info">
+        El resultado de sumar: {{ num1 }} + {{ num2 }} = {{ resultado_suma }}
+      </td>
+    </tr>
+    <tr>
+      <td class="text-center col-4 bg-danger">4. Resta</td>
+      <td class="text-center col-4 bg-danger">
+        Recibe dos numeros y realiza una resta
+      </td>
+      <td class="text-center col-4 bg-info">
+        El resultado de restar: {{ num1 }} - {{ num2 }} = {{ resultado_resta }}
+      </td>
+    </tr>
+    <tr>
+      <td class="text-center col-4 bg-danger">5. Multiplicacion</td>
+      <td class="text-center col-4 bg-danger">
+        Recibe dos numeros y realiza una multiplicacion
+      </td>
+      <td class="text-center col-4 bg-info">
+        El resultado de multiplicar: {{ num1 }} x {{ num2 }} =
+        {{ resultado_multi }}
+      </td>
+    </tr>
+    <tr>
+      <td class="text-center col-4 bg-danger">6. Division</td>
+      <td class="text-center col-4 bg-danger">
+        Recibe dos numeros y realiza una division
+      </td>
+      <td class="text-center col-4 bg-info">
+        El resultado de dividir: {{ num1 }} ÷ {{ num2 }} = {{ resultado_div }}
+      </td>
+    </tr>
+    <tr>
+      <td class="text-center col-4 bg-danger">
+        7. Convertir grados farenheit a celcius
+      </td>
+      <td class="text-center col-4 bg-danger">
+        Agrega una variable en la cual asignes un valor con la temperatura en
+        grados farenheit y en otra variable nos de la conversion en grados
+        celcius
+      </td>
+      <td class="text-center col-4 bg-info">
+        Tus grados farenheit: {{ gfarenheit }} convertidos a celcius son:
+        {{ gcelsius }}
+      </td>
+    </tr>
+    <tr>
+      <td class="text-center col-4 bg-danger">9. Condicionales</td>
+      <td class="text-center col-4 bg-danger">
+        A. Solicitar al usuario su genero, dependiendo de su eleccion mostrar un
+        mensaje
+      </td>
+      <td class="text-center col-4 bg-info">{{ mensaje_genero }}</td>
+    </tr>
+    <tr>
+      <td class="text-center col-4 bg-danger">10. Calificaciones</td>
+      <td class="text-center col-4 bg-danger">
+        B. Solicitar al usuario una calificacion del 0-100. Mostrar un mensaje
+        segun la nota
+      </td>
+      <td class="text-center col-4 bg-info">{{ resultado_calificacion }}</td>
+    </tr>
+    <tr>
+      <td class="text-center col-4 bg-danger">10. Seleccion de operaciones</td>
+      <td class="text-center col-4 bg-danger">
+        C. Solicitar dos numeros al usuario (por meedio de un formulario) y
+        darles la opcion de sumar, restar, multiplicar y dividir dichos numeros
+        ademas mostrar el resultado
+      </td>
+      <td class="text-center col-4 bg-info">
+        <div class="container">
+          <div class="row">
+            <div class="col-6 p1">
+              <label for="inputnum1">Primer numero</label>
+              <input type="text" class="form-control" id="inputnum1" />
+            </div>
+            <div class="col-6 p1">
+              <label for="inputnum2">Segundo numero</label>
+              <input type="text" class="form-control" id="inputnum2" />
+            </div>
           </div>
-          <div class="form-group col-md-2">
-            <label for="inputnum2">Segundo numero</label>
-            <input type="text" class="form-control" id="inputnum2">
+        </div>
+        <div class="container">
+          <div class="row">
+            <div class="col-6 p-1">
+              <button type="button" class="btn btn-secondary w-100">
+                Suma
+              </button>
+            </div>
+            <div class="col-6 p-1">
+              <button type="button" class="btn btn-secondary w-100">
+                Resta
+              </button>
+            </div>
+            <div class="col-6 p-1">
+              <button type="button" class="btn btn-secondary w-100">
+                Multiplicacion
+              </button>
+            </div>
+            <div class="col-6 p-1">
+              <button type="button" class="btn btn-secondary w-100">
+                Division
+              </button>
+            </div>
           </div>
-          <button type="button" class="btn btn-secondary">Secondary</button>
-          <button type="button" class="btn btn-secondary">Secondary</button>
-          <button type="button" class="btn btn-secondary">Secondary</button>
-          <button type="button" class="btn btn-secondary">Secondary</button>
-        </td>
-      </tr>
-    </tbody>
-  </table>
+        </div>
+      </td>
+    </tr>
+  </tbody>
+</table>

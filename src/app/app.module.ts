@@ -10,13 +10,14 @@ import { FooterComponent } from './footer/footer.component';
 import { InicioComponent } from './content/inicio/inicio.component';
 import { PortafolioComponent } from './content/portafolio/portafolio.component';
 
-import { RouterModule, Routes } from '@angular/router'; 
+import { RouterModule, Routes } from '@angular/router';
+import { FormsModule } from '@angular/forms';
 
 const appRoutes: Routes = [
-  {path: '', component:InicioComponent},
-  {path: 'inicio', component:InicioComponent},
-  {path: 'portafolio', component: PortafolioComponent}
-]
+  { path: '', component: InicioComponent },
+  { path: 'inicio', component: InicioComponent },
+  { path: 'portafolio', component: PortafolioComponent },
+];
 
 @NgModule({
   declarations: [
@@ -26,14 +27,15 @@ const appRoutes: Routes = [
     ContentComponent,
     FooterComponent,
     InicioComponent,
-    PortafolioComponent
+    PortafolioComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    RouterModule.forRoot(appRoutes,{enableTracing:true})
+    FormsModule,
+    RouterModule.forRoot(appRoutes, { enableTracing: true }),
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
