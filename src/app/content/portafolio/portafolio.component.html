@@ -16,20 +16,72 @@
       <td class="text-center col-md-4 h3 table-dark">Resultado</td>
     </tr>
     <tr>
+      <!--* EJERCICIO 1 -->
       <td class="text-center col-4 bg-danger">1. Uso de variables</td>
       <td class="text-center col-4 bg-danger">
         Recibe un texto y lo muestra en pantalla
       </td>
-      <td class="text-center col-4 bg-info">{{ texto }}</td>
+      <td class="text-center col-4 bg-info">
+        <form>
+          <div class="form-group">
+            <label>¿Cual es tu nombre?</label>
+            <input
+              type="text"
+              class="form-control"
+              name="text"
+              [(ngModel)]="texto"
+              placeholder="Ingresa tu nombre"
+            />
+            <button
+              type="button"
+              class="btn btn-primary mt-2"
+              (click)="saludar()"
+            >
+              Saludar
+            </button>
+          </div>
+        </form>
+        {{ saludo }}
+      </td>
     </tr>
+    <!--* EJERCICIO 2 -->
     <tr>
       <td class="text-center col-4 bg-danger">2. Combinaciones</td>
       <td class="text-center col-4 bg-danger">
         Recibe nombre y apellidos para concatenarlos
       </td>
-      <td class="text-center col-4 bg-info">{{ nombre_completo }}</td>
+      <td class="text-center col-4 bg-info">
+        <form>
+          <div class="form-group">
+            <label>Escribe tu nombre</label>
+            <input
+              type="text"
+              class="form-control"
+              name="text"
+              [(ngModel)]="nombre"
+              placeholder="Ingresa tu nombre"
+            />
+            <label>Escribe tu apellido</label>
+            <input
+              type="text"
+              class="form-control"
+              name="text"
+              [(ngModel)]="apellido"
+              placeholder="Ingresa tu apellido"
+            />
+            <button
+              type="button"
+              class="btn btn-primary mt-2"
+              (click)="saludo_nombre_completo()"
+            >
+              Saludar
+            </button>
+          </div>
+        </form>
+        {{ nombre_completo }}
+      </td>
     </tr>
-    <tr>
+    <!-- <tr>
       <td class="text-center col-4 bg-danger">3. Suma</td>
       <td class="text-center col-4 bg-danger">
         Recibe dos numeros y realiza una suma
@@ -65,23 +117,50 @@
       <td class="text-center col-4 bg-info">
         El resultado de dividir: {{ num1 }} ÷ {{ num2 }} = {{ resultado_div }}
       </td>
-    </tr>
+    </tr> -->
     <tr>
       <td class="text-center col-4 bg-danger">
-        7. Convertir grados farenheit a celcius
+        3. Convertir grados farenheit a celcius
       </td>
       <td class="text-center col-4 bg-danger">
         Agrega una variable en la cual asignes un valor con la temperatura en
         grados farenheit y en otra variable nos de la conversion en grados
-        celcius
+        celcius.
       </td>
       <td class="text-center col-4 bg-info">
+        <form>
+          <div class="form-group">
+            <label>Escribe tu nombre</label>
+            <input
+              type="text"
+              class="form-control"
+              name="text"
+              [(ngModel)]="nombre"
+              placeholder="Ingresa tu nombre"
+            />
+            <label>Escribe tu apellido</label>
+            <input
+              type="text"
+              class="form-control"
+              name="text"
+              [(ngModel)]="apellido"
+              placeholder="Ingresa tu apellido"
+            />
+            <button
+              type="button"
+              class="btn btn-primary mt-2"
+              (click)="saludo_nombre_completo()"
+            >
+              Saludar
+            </button>
+          </div>
+        </form>
         Tus grados farenheit: {{ gfarenheit }} convertidos a celcius son:
         {{ gcelsius }}
       </td>
     </tr>
     <tr>
-      <td class="text-center col-4 bg-danger">9. Condicionales</td>
+      <td class="text-center col-4 bg-danger">4. Condicionales</td>
       <td class="text-center col-4 bg-danger">
         A. Solicitar al usuario su genero, dependiendo de su eleccion mostrar un
         mensaje
@@ -89,7 +168,7 @@
       <td class="text-center col-4 bg-info">{{ mensaje_genero }}</td>
     </tr>
     <tr>
-      <td class="text-center col-4 bg-danger">10. Calificaciones</td>
+      <td class="text-center col-4 bg-danger">5. Calificaciones</td>
       <td class="text-center col-4 bg-danger">
         B. Solicitar al usuario una calificacion del 0-100. Mostrar un mensaje
         segun la nota
@@ -97,9 +176,9 @@
       <td class="text-center col-4 bg-info">{{ resultado_calificacion }}</td>
     </tr>
     <tr>
-      <td class="text-center col-4 bg-danger">10. Seleccion de operaciones</td>
+      <td class="text-center col-4 bg-danger">6. Seleccion de operaciones</td>
       <td class="text-center col-4 bg-danger">
-        C. Solicitar dos numeros al usuario (por meedio de un formulario) y
+        C. Solicitar dos numeros al usuario (por medio de un formulario) y
         darles la opcion de sumar, restar, multiplicar y dividir dichos numeros
         ademas mostrar el resultado
       </td>
@@ -108,36 +187,63 @@
           <div class="row">
             <div class="col-6 p1">
               <label for="inputnum1">Primer numero</label>
-              <input type="text" class="form-control" id="inputnum1" />
+              <input
+                type="number"
+                class="form-control"
+                id="inputnum1"
+                [(ngModel)]="numero1"
+              />
             </div>
             <div class="col-6 p1">
               <label for="inputnum2">Segundo numero</label>
-              <input type="text" class="form-control" id="inputnum2" />
+              <input
+                type="number"
+                class="form-control"
+                id="inputnum2"
+                [(ngModel)]="numero2"
+              />
             </div>
           </div>
         </div>
         <div class="container">
           <div class="row">
             <div class="col-6 p-1">
-              <button type="button" class="btn btn-secondary w-100">
+              <button
+                type="button"
+                class="btn btn-secondary w-100"
+                (click)="operar('suma')"
+              >
                 Suma
               </button>
             </div>
             <div class="col-6 p-1">
-              <button type="button" class="btn btn-secondary w-100">
+              <button
+                type="button"
+                class="btn btn-secondary w-100"
+                (click)="operar('resta')"
+              >
                 Resta
               </button>
             </div>
             <div class="col-6 p-1">
-              <button type="button" class="btn btn-secondary w-100">
+              <button
+                type="button"
+                class="btn btn-secondary w-100"
+                (click)="operar('multiplicacion')"
+              >
                 Multiplicacion
               </button>
             </div>
             <div class="col-6 p-1">
-              <button type="button" class="btn btn-secondary w-100">
+              <button
+                type="button"
+                class="btn btn-secondary w-100"
+                (click)="operar('division')"
+              >
                 Division
               </button>
             </div>
+            <h3>Resultado: {{ resultado }}</h3>
           </div>
         </div>
       </td>

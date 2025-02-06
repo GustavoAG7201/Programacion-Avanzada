@@ -10,6 +10,7 @@ export class PortafolioComponent {
   // 1. Atributos/Variables/Tipos de datos
 
   texto!: string;
+  saludo!: string;
   nombre!: string;
   apellido!: string;
   nombre_completo!: string;
@@ -32,21 +33,9 @@ export class PortafolioComponent {
   resultado!: number;
 
   // 2. Metodos
-  //* Este metodo se ejecuta al momento de iniciar la pagina
+  //!Este metodo se ejecuta al momento de iniciar la pagina
   ngOnInit() {
-    this.nombre = 'Gustavo';
-    this.apellido = 'Alonso';
-    this.nombre_completo =
-      'Bienvenido! ' + this.nombre + ' ' + this.apellido + '!';
-    this.texto = 'Hola mundo!';
     this.genero = 'hombre';
-    // console.log(this.texto)
-
-    //! Ejercicio 2. Mostrar un texto en alerta
-    // alert(this.texto)
-
-    //! Ejercicio 4. Mostrar dos textos concatenados
-    // alert(this.nombre_completo)
 
     //!Operaciones
     this.num1 = 10;
@@ -96,5 +85,36 @@ export class PortafolioComponent {
     }
   }
 
-  suma() {}
+  saludar() {
+    this.saludo = '!Hola ' + this.texto + '!';
+  }
+
+  saludo_nombre_completo() {
+    this.nombre_completo = '!Hola ' + this.nombre + this.apellido + '!';
+  }
+
+  //!Funcion para realizar la operacion seleccionada
+  operar(operacion: string) {
+    switch (operacion) {
+      case 'suma':
+        this.resultado = this.numero1 + this.numero2;
+        break;
+
+      case 'resta':
+        this.resultado = this.numero1 - this.numero2;
+        break;
+
+      case 'multiplicacion':
+        this.resultado = this.numero1 * this.numero2;
+        break;
+
+      case 'division':
+        if (this.numero2 === 0) {
+          alert('No se pueden dividir numeros por cero');
+        } else {
+          this.resultado = this.numero1 / this.numero2;
+        }
+        break;
+    }
+  }
 }
