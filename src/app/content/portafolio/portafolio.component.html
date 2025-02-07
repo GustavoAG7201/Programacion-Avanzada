@@ -21,13 +21,13 @@
       <td class="text-center col-4 bg-danger">
         Recibe un texto y lo muestra en pantalla
       </td>
-      <td class="text-center col-4 bg-info">
+      <td class="col-4 bg-info">
         <form>
           <div class="form-group">
             <label>¿Cual es tu nombre?</label>
             <input
               type="text"
-              class="form-control"
+              class="form-control w-50"
               name="text"
               [(ngModel)]="texto"
               placeholder="Ingresa tu nombre"
@@ -46,17 +46,17 @@
     </tr>
     <!--* EJERCICIO 2 -->
     <tr>
-      <td class="text-center col-4 bg-danger">2. Combinaciones</td>
-      <td class="text-center col-4 bg-danger">
+      <td class="col-4 bg-danger">2. Combinaciones</td>
+      <td class="col-4 bg-danger">
         Recibe nombre y apellidos para concatenarlos
       </td>
-      <td class="text-center col-4 bg-info">
+      <td class="col-4 bg-info">
         <form>
           <div class="form-group">
             <label>Escribe tu nombre</label>
             <input
               type="text"
-              class="form-control"
+              class="form-control w-50"
               name="text"
               [(ngModel)]="nombre"
               placeholder="Ingresa tu nombre"
@@ -64,7 +64,7 @@
             <label>Escribe tu apellido</label>
             <input
               type="text"
-              class="form-control"
+              class="form-control w-50"
               name="text"
               [(ngModel)]="apellido"
               placeholder="Ingresa tu apellido"
@@ -118,54 +118,68 @@
         El resultado de dividir: {{ num1 }} ÷ {{ num2 }} = {{ resultado_div }}
       </td>
     </tr> -->
+    <!--* EJERCICIO 3 -->
     <tr>
-      <td class="text-center col-4 bg-danger">
-        3. Convertir grados farenheit a celcius
-      </td>
-      <td class="text-center col-4 bg-danger">
+      <td class="col-4 bg-danger">3. Convertir grados farenheit a celsius</td>
+      <td class="col-4 bg-danger">
         Agrega una variable en la cual asignes un valor con la temperatura en
         grados farenheit y en otra variable nos de la conversion en grados
-        celcius.
+        celsius.
       </td>
-      <td class="text-center col-4 bg-info">
+      <td class="col-4 bg-info">
         <form>
           <div class="form-group">
-            <label>Escribe tu nombre</label>
+            <label>Ingresa la cantidad de grados farenheit</label>
             <input
               type="text"
-              class="form-control"
+              class="form-control w-50"
               name="text"
-              [(ngModel)]="nombre"
-              placeholder="Ingresa tu nombre"
-            />
-            <label>Escribe tu apellido</label>
-            <input
-              type="text"
-              class="form-control"
-              name="text"
-              [(ngModel)]="apellido"
-              placeholder="Ingresa tu apellido"
+              [(ngModel)]="gfarenheit"
+              placeholder="Grados farenheit"
             />
             <button
               type="button"
               class="btn btn-primary mt-2"
-              (click)="saludo_nombre_completo()"
+              (click)="calculo_grados()"
             >
-              Saludar
+              Calcular grados
             </button>
           </div>
         </form>
-        Tus grados farenheit: {{ gfarenheit }} convertidos a celcius son:
+        Tus grados farenheit: {{ gfarenheit }} convertidos a celsius son:
         {{ gcelsius }}
       </td>
     </tr>
+    <!--* EJERCICIO 4 -->
     <tr>
-      <td class="text-center col-4 bg-danger">4. Condicionales</td>
-      <td class="text-center col-4 bg-danger">
-        A. Solicitar al usuario su genero, dependiendo de su eleccion mostrar un
+      <td class="col-4 bg-danger">4. Condicionales</td>
+      <td class="col-4 bg-danger">
+        A. Solicitar al usuario su género, dependiendo de su eleccion mostrar un
         mensaje
       </td>
-      <td class="text-center col-4 bg-info">{{ mensaje_genero }}</td>
+      <td class="col-4 bg-info">
+        <form>
+          <div class="form-group">
+            <label>Por favor selecciona tu género</label>
+            <select
+              name="genero"
+              class="form-control w-50"
+              [(ngModel)]="genero"
+            >
+              <option value="1">Masculino</option>
+              <option value="2">Femenino</option>
+            </select>
+            <button
+              type="button"
+              class="btn btn-primary mt-2"
+              (click)="generos()"
+            >
+              Aceptar
+            </button>
+          </div>
+        </form>
+        <p class="mt-2">{{ mensaje_genero }}</p>
+      </td>
     </tr>
     <tr>
       <td class="text-center col-4 bg-danger">5. Calificaciones</td>

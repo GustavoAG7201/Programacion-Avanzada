@@ -26,8 +26,6 @@ export class PortafolioComponent {
   mensaje_genero!: string;
   calificacion!: number;
   resultado_calificacion!: string;
-
-  //variables para el punto 10
   numero1!: number;
   numero2!: number;
   resultado!: number;
@@ -35,36 +33,36 @@ export class PortafolioComponent {
   // 2. Metodos
   //!Este metodo se ejecuta al momento de iniciar la pagina
   ngOnInit() {
-    this.genero = 'hombre';
+    // this.genero = 'hombre';
 
     //!Operaciones
-    this.num1 = 10;
-    this.num2 = 50;
+    // this.num1 = 10;
+    // this.num2 = 50;
 
-    //*Suma (Ejercicio 5)
-    this.resultado_suma = this.num1 + this.num2;
+    // //*Suma (Ejercicio 5)
+    // this.resultado_suma = this.num1 + this.num2;
 
-    //*Resta
-    this.resultado_resta = this.num1 - this.num2;
+    // //*Resta
+    // this.resultado_resta = this.num1 - this.num2;
 
-    //*Multiplicacion
-    this.resultado_multi = this.num1 * this.num2;
+    // //*Multiplicacion
+    // this.resultado_multi = this.num1 * this.num2;
 
-    //*Division
-    this.resultado_div = this.num1 / this.num2;
+    // //*Division
+    // this.resultado_div = this.num1 / this.num2;
 
     //* Convertir grados farenheit a celcius
-    this.gfarenheit = 90;
-    this.gcelsius = ((this.gfarenheit - 32) * 5) / 9;
+    // this.gfarenheit = 90;
+    // this.gcelsius = ((this.gfarenheit - 32) * 5) / 9;
 
     //*Mostrar un mensaje dependiendo el genero
-    if (this.genero == 'hombre') {
-      this.mensaje_genero = 'Bienvenido al curso!';
-    }
+    // if (this.genero == 'hombre') {
+    //   this.mensaje_genero = 'Bienvenido al curso!';
+    // }
 
-    if (this.genero == 'mujer') {
-      this.mensaje_genero = 'Bienvenida al curso!';
-    }
+    // if (this.genero == 'mujer') {
+    //   this.mensaje_genero = 'Bienvenida al curso!';
+    // }
 
     //*Pedir una calificacion y mostrar un mensaje segun la nota
 
@@ -86,14 +84,27 @@ export class PortafolioComponent {
   }
 
   saludar() {
-    this.saludo = '!Hola ' + this.texto + '!';
+    this.saludo = '! Hola ' + this.texto + ' !';
   }
 
   saludo_nombre_completo() {
     this.nombre_completo = '!Hola ' + this.nombre + this.apellido + '!';
   }
 
-  //!Funcion para realizar la operacion seleccionada
+  calculo_grados() {
+    this.gcelsius = ((this.gfarenheit - 32) * 5) / 9;
+  }
+
+  generos() {
+    if (this.genero == '1') {
+      this.mensaje_genero = '¡Bienvenido al curso!';
+    } else if (this.genero == '2') {
+      this.mensaje_genero = '¡Bienvenida al curso!';
+    } else {
+      this.mensaje_genero = 'Por favor selecciona un género.';
+    }
+  }
+
   operar(operacion: string) {
     switch (operacion) {
       case 'suma':
