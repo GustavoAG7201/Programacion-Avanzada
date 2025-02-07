@@ -1,7 +1,7 @@
 <!--! Ejercicio 3. Mostrar un texto en pantalla -->
 <!-- <p class="fw-bold text-danger">{{texto}}</p> -->
 
-<table class="table">
+<table class="table table-sm table-striped table-hover">
   <thead>
     <tr>
       <th scope="col" colspan="3%" class="text-center display-6 table-dark">
@@ -17,10 +17,8 @@
     </tr>
     <tr>
       <!--* EJERCICIO 1 -->
-      <td class="text-center col-4 bg-danger">1. Uso de variables</td>
-      <td class="text-center col-4 bg-danger">
-        Recibe un texto y lo muestra en pantalla
-      </td>
+      <td class="col-4 bg-danger">1. Uso de variables</td>
+      <td class="col-4 bg-danger">Recibe un texto y lo muestra en pantalla</td>
       <td class="col-4 bg-info">
         <form>
           <div class="form-group">
@@ -183,35 +181,32 @@
     </tr>
     <tr>
       <!--* EJERCICIO 5 -->
-      <td class="text-center col-4 bg-danger">5. Calificaciones</td>
-      <td class="text-center col-4 bg-danger">
+      <td class="col-4 bg-danger">5. Calificaciones</td>
+      <td class="col-4 bg-danger">
         B. Solicitar al usuario una calificacion del 0-100. Mostrar un mensaje
         segun la nota
       </td>
-      <td class="text-center col-4 bg-info">
-        <form>
+      <td class="col-4 bg-info">
+        <form (ngSubmit)="clasificar_calificacion()">
           <div class="form-group">
-            <label>Por favor ingresa tu calificacion</label>
-            <select
-              name="califcacion"
+            <label for="calificacion">Ingresa tu calificación:</label>
+            <input
+              type="number"
               class="form-control w-50"
-              [(ngModel)]="calificaciones"
-            >
-              <option value="1">Masculino</option>
-              <option value="2">Femenino</option>
-            </select>
-            <button
-              type="button"
-              class="btn btn-primary mt-2"
-              (click)="generos()"
-            >
-              Aceptar
-            </button>
+              id="calificacion"
+              [(ngModel)]="calificacion"
+              name="calificacion"
+              required
+            />
           </div>
+
+          <button type="submit" class="btn btn-primary mt-2">Evaluar</button>
+
+          <p class="mt-3">Resultado: {{ resultado_calificacion }}</p>
         </form>
-        {{ resultado_calificacion }}
       </td>
     </tr>
+    <!--* EJERCICIO 5 -->
     <tr>
       <td class="text-center col-4 bg-danger">6. Seleccion de operaciones</td>
       <td class="text-center col-4 bg-danger">
@@ -220,7 +215,67 @@
         ademas mostrar el resultado
       </td>
       <td class="text-center col-4 bg-info">
-        <div class="container">
+        <form (ngSubmit)="operar()">
+          <div class="container">
+            <div class="row">
+              <div class="col-6 p-1">
+                <label for="inputnum1" class="form-label">Primer número</label>
+                <input
+                  type="number"
+                  class="form-control"
+                  id="inputnum1"
+                  [(ngModel)]="numero1"
+                  name="numero1"
+                  required
+                />
+              </div>
+              <div class="col-6 p-1">
+                <label for="inputnum2" class="form-label">Segundo número</label>
+                <input
+                  type="number"
+                  class="form-control"
+                  id="inputnum2"
+                  [(ngModel)]="numero2"
+                  name="numero2"
+                  required
+                />
+              </div>
+            </div>
+            <div class="row mt-3">
+              <div class="col-12">
+                <label for="operacion" class="form-label"
+                  >Seleccione una operación</label
+                >
+                <select
+                  class="form-select"
+                  [(ngModel)]="operacion"
+                  name="operacion"
+                  required
+                >
+                  <option value="suma">Suma</option>
+                  <option value="resta">Resta</option>
+                  <option value="multiplicacion">Multiplicación</option>
+                  <option value="division">División</option>
+                </select>
+              </div>
+            </div>
+            <div class="row mt-3">
+              <div class="col-12 text-center">
+                <button type="submit" class="btn btn-primary w-50">
+                  Calcular
+                </button>
+              </div>
+            </div>
+
+            <div class="row mt-3">
+              <div class="col-12 text-center">
+                <p>Resultado: {{ resultado }}</p>
+              </div>
+            </div>
+          </div>
+        </form>
+
+        <!-- <div class="container">
           <div class="row">
             <div class="col-6 p1">
               <label for="inputnum1">Primer numero</label>
@@ -282,7 +337,7 @@
             </div>
             <h3>Resultado: {{ resultado }}</h3>
           </div>
-        </div>
+        </div> -->
       </td>
     </tr>
   </tbody>
