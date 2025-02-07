@@ -67,7 +67,7 @@ export class PortafolioComponent {
   }
 
   calculo_grados() {
-    this.gcelsius = ((this.gfarenheit - 32) * 5) / 9;
+    this.gcelsius = Math.round(((this.gfarenheit - 32) * 5) / 9);
   }
 
   generos() {
