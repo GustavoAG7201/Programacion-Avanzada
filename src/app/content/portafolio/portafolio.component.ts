@@ -105,6 +105,8 @@ export class PortafolioComponent {
     }
   }
 
+  calificaciones() {}
+
   operar(operacion: string) {
     switch (operacion) {
       case 'suma':

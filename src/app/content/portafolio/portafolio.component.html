@@ -182,12 +182,35 @@
       </td>
     </tr>
     <tr>
+      <!--* EJERCICIO 5 -->
       <td class="text-center col-4 bg-danger">5. Calificaciones</td>
       <td class="text-center col-4 bg-danger">
         B. Solicitar al usuario una calificacion del 0-100. Mostrar un mensaje
         segun la nota
       </td>
-      <td class="text-center col-4 bg-info">{{ resultado_calificacion }}</td>
+      <td class="text-center col-4 bg-info">
+        <form>
+          <div class="form-group">
+            <label>Por favor ingresa tu calificacion</label>
+            <select
+              name="califcacion"
+              class="form-control w-50"
+              [(ngModel)]="calificaciones"
+            >
+              <option value="1">Masculino</option>
+              <option value="2">Femenino</option>
+            </select>
+            <button
+              type="button"
+              class="btn btn-primary mt-2"
+              (click)="generos()"
+            >
+              Aceptar
+            </button>
+          </div>
+        </form>
+        {{ resultado_calificacion }}
+      </td>
     </tr>
     <tr>
       <td class="text-center col-4 bg-danger">6. Seleccion de operaciones</td>
