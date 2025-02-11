@@ -44,17 +44,19 @@
               Saludar
             </button>
           </div>
+          <div class="alert alert-danger mt-3" role="alert">
+            <p>Resultado: {{ saludo }}</p>
+          </div>
         </form>
-        {{ saludo }}
       </td>
     </tr>
     <!--* EJERCICIO 2 -->
     <tr>
-      <td class="col-4 bg-danger">2. Combinaciones</td>
-      <td class="col-4 bg-danger">
+      <td class="col-4 contenido-tabla">2. Combinaciones</td>
+      <td class="col-4 contenido-tabla">
         Recibe nombre y apellidos para concatenarlos
       </td>
-      <td class="col-4 bg-info">
+      <td class="col-4 contenido-tabla">
         <form>
           <div class="form-group">
             <label>Escribe tu nombre</label>
@@ -81,8 +83,10 @@
               Saludar
             </button>
           </div>
+          <div class="alert alert-danger mt-3" role="alert">
+            <p>Resultado: {{ nombre_completo }}</p>
+          </div>
         </form>
-        {{ nombre_completo }}
       </td>
     </tr>
     <!-- <tr>
@@ -124,13 +128,15 @@
     </tr> -->
     <!--* EJERCICIO 3 -->
     <tr>
-      <td class="col-4 bg-danger">3. Convertir grados farenheit a celsius</td>
-      <td class="col-4 bg-danger">
+      <td class="col-4 contenido-tabla">
+        3. Convertir grados farenheit a celsius
+      </td>
+      <td class="col-4 contenido-tabla">
         Agrega una variable en la cual asignes un valor con la temperatura en
         grados farenheit y en otra variable nos de la conversion en grados
         celsius.
       </td>
-      <td class="col-4 bg-info">
+      <td class="col-4 contenido-tabla">
         <form>
           <div class="form-group">
             <label>Ingresa la cantidad de grados farenheit</label>
@@ -149,19 +155,23 @@
               Calcular grados
             </button>
           </div>
+          <div class="alert alert-danger mt-3" role="alert">
+            <p>
+              Tus grados farenheit {{ gfarenheit }} convertidos a celsius son:
+              {{ gcelsius }}
+            </p>
+          </div>
         </form>
-        Tus grados farenheit: {{ gfarenheit }} convertidos a celsius son:
-        {{ gcelsius }}
       </td>
     </tr>
     <!--* EJERCICIO 4 -->
     <tr>
-      <td class="col-4 bg-danger">4. Condicionales</td>
-      <td class="col-4 bg-danger">
+      <td class="col-4 contenido-tabla">4. Condicionales</td>
+      <td class="col-4 contenido-tabla">
         A. Solicitar al usuario su género, dependiendo de su eleccion mostrar un
         mensaje
       </td>
-      <td class="col-4 bg-info">
+      <td class="col-4 contenido-tabla">
         <form>
           <div class="form-group">
             <label>Por favor selecciona tu género</label>
@@ -181,18 +191,20 @@
               Aceptar
             </button>
           </div>
+          <div class="alert alert-danger mt-3" role="alert">
+            <p>Resultado: {{ mensaje_genero }}</p>
+          </div>
         </form>
-        <p class="mt-2">{{ mensaje_genero }}</p>
       </td>
     </tr>
     <tr>
       <!--* EJERCICIO 5 -->
-      <td class="col-4 tabla-contenido">5. Calificaciones</td>
-      <td class="col-4">
+      <td class="col-4 contenido-tabla">5. Calificaciones</td>
+      <td class="col-4 contenido-tabla">
         B. Solicitar al usuario una calificacion del 0-100. Mostrar un mensaje
         segun la nota
       </td>
-      <td class="col-4 bg-info">
+      <td class="col-4 contenido-tabla">
         <form (ngSubmit)="clasificar_calificacion()">
           <div class="form-group">
             <label for="calificacion">Ingresa tu calificación:</label>
@@ -205,22 +217,22 @@
               required
             />
           </div>
-
           <button type="submit" class="btn btn-secondary mt-2">Evaluar</button>
-
-          <p class="mt-3">Resultado: {{ resultado_calificacion }}</p>
+          <div class="alert alert-danger mt-3" role="alert">
+            <p>Resultado: {{ resultado_calificacion }}</p>
+          </div>
         </form>
       </td>
     </tr>
     <!--* EJERCICIO 5 -->
     <tr>
-      <td class="col-4 bg-danger">6. Seleccion de operaciones</td>
-      <td class="col-4 bg-danger">
+      <td class="col-4 contenido-tabla">6. Seleccion de operaciones</td>
+      <td class="col-4 contenido-tabla">
         C. Solicitar dos numeros al usuario (por medio de un formulario) y
         darles la opcion de sumar, restar, multiplicar y dividir dichos numeros
         ademas mostrar el resultado
       </td>
-      <td class="text-center col-4 bg-info">
+      <td class="text-center col-4 contenido-tabla">
         <form (ngSubmit)="operar()">
           <div class="container">
             <div class="row">
@@ -272,11 +284,8 @@
                 </button>
               </div>
             </div>
-
-            <div class="row mt-3">
-              <div class="col-12 text-center">
-                <p>Resultado: {{ resultado }}</p>
-              </div>
+            <div class="alert alert-danger mt-3" role="alert">
+              <p>Resultado: {{ resultado }}</p>
             </div>
           </div>
         </form>
