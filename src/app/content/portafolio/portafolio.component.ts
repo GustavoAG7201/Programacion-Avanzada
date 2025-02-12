@@ -30,6 +30,10 @@ export class PortafolioComponent {
   numero2!: number;
   operacion!: string;
   resultado: number | string = '';
+  alumnos: Array<string> = [];
+  alumno!: string;
+  numeros_telefonicos: Array<number> = [];
+  numero_telefonico!: number;
 
   // 2. Metodos
   //!Este metodo se ejecuta al momento de iniciar la pagina
@@ -120,5 +124,20 @@ export class PortafolioComponent {
       default:
         this.resultado = 'Por favor, selecciona una opcion valida';
     }
+  }
+  agregar() {
+    // alert('Si funciona! :D');
+    // alert(this.alumno);
+
+    if (this.alumno.trim() !== '') {
+      this.alumnos.push(this.alumno);
+      this.alumno = '';
+    }
+
+    // console.log(this.alumnos);
+  }
+
+  agregar_telefono() {
+    this.numeros_telefonicos.push(this.numero_telefonico);
   }
 }

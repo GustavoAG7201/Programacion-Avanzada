@@ -224,7 +224,7 @@
         </form>
       </td>
     </tr>
-    <!--* EJERCICIO 5 -->
+    <!--* EJERCICIO 7 -->
     <tr>
       <td class="col-4 contenido-tabla">6. Seleccion de operaciones</td>
       <td class="col-4 contenido-tabla">
@@ -289,7 +289,6 @@
             </div>
           </div>
         </form>
-
         <!-- <div class="container">
           <div class="row">
             <div class="col-6 p1">
@@ -353,6 +352,76 @@
             <h3>Resultado: {{ resultado }}</h3>
           </div>
         </div> -->
+      </td>
+    </tr>
+    <tr>
+      <td class="col-4 contenido-tabla">Arreglos</td>
+      <td class="col-4 contenido-tabla">
+        <p>Mostrar una lista de elementos del arreglo</p>
+      </td>
+      <td class="col-4 contenido-tabla">
+        <form>
+          <div class="form-group">
+            <label>¿Cual es el nombre de los alumnos?</label>
+            <input
+              type="text"
+              class="form-control w-50"
+              name="text"
+              [(ngModel)]="alumno"
+              placeholder="Ingresa el nombre"
+            />
+            <button
+              type="button"
+              class="btn btn-secondary mt-2"
+              (click)="agregar()"
+            >
+              Agregar
+            </button>
+          </div>
+          <div class="alert alert-danger mt-3" role="alert">
+            <ul *ngFor="let a of alumnos">
+              <li>{{ a }}</li>
+            </ul>
+          </div>
+        </form>
+      </td>
+    </tr>
+    <!--* SEGUNDO ARRAY -->
+    <tr>
+      <td class="col-4 contenido-tabla">Arreglos 2</td>
+      <td class="col-4 contenido-tabla">
+        <p>
+          Mostrar una lista de numeros telefonicos (tipo de dato numerico) a un
+          arreglo. Y limpiar el campo de entrada cada vez que se agrega uno
+          nuevo
+        </p>
+      </td>
+      <td class="col-4 contenido-tabla">
+        <form>
+          <div class="form-group">
+            <label>Ingresa el numero telefonico</label>
+            <input
+              type="number"
+              class="form-control"
+              [(ngModel)]="numero_telefonico"
+              name="numero1"
+              required
+              pattern="[0-9]"
+            />
+            <button
+              type="reset"
+              class="btn btn-secondary mt-2"
+              (click)="agregar_telefono()"
+            >
+              Agregar
+            </button>
+          </div>
+          <div class="alert alert-danger mt-3" role="alert">
+            <ul *ngFor="let n of numeros_telefonicos">
+              <li>{{ n }}</li>
+            </ul>
+          </div>
+        </form>
       </td>
     </tr>
   </tbody>
