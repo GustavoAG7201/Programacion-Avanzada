@@ -401,15 +401,20 @@
           <div class="form-group">
             <label>Ingresa el numero telefonico</label>
             <input
-              type="number"
+              type="text"
+              inputmode="numeric"
+              pattern="\d*"
+              maxlength="10"
               class="form-control"
               [(ngModel)]="numero_telefonico"
-              name="numero1"
-              required
-              pattern="[0-9]"
+              name="numero_telefonico"
+              (input)="validar_telefono()"
             />
+            <div *ngIf="mensaje_error" class="text-danger mt-2">
+              <small>{{ mensaje_error }}</small>
+            </div>
             <button
-              type="reset"
+              type="button"
               class="btn btn-secondary mt-2"
               (click)="agregar_telefono()"
             >

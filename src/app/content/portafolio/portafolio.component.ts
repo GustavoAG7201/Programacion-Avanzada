@@ -32,8 +32,9 @@ export class PortafolioComponent {
   resultado: number | string = '';
   alumnos: Array<string> = [];
   alumno!: string;
-  numeros_telefonicos: Array<number> = [];
-  numero_telefonico!: number;
+  numeros_telefonicos: string[] = [];
+  numero_telefonico: string = '';
+  mensaje_error: string = '';
 
   // 2. Metodos
   //!Este metodo se ejecuta al momento de iniciar la pagina
@@ -138,6 +139,23 @@ export class PortafolioComponent {
   }
 
   agregar_telefono() {
+    if (this.numero_telefonico.length !== 10) {
+      this.mensaje_error =
+        'El número debe tener exactamente 10 dígitos y no debe tener letras.';
+      return;
+    }
     this.numeros_telefonicos.push(this.numero_telefonico);
+    this.numero_telefonico = '';
+    this.mensaje_error = '';
+  }
+
+  validar_telefono() {
+    // Permitir solo números
+    this.numero_telefonico = this.numero_telefonico.replace(/\D/g, '');
+
+    // Si la longitud es mayor a 10, recortar
+    if (this.numero_telefonico.length > 10) {
+      this.numero_telefonico = this.numero_telefonico.slice(0, 10);
+    }
   }
 }
