@@ -429,5 +429,39 @@
         </form>
       </td>
     </tr>
+    <tr>
+      <td class="col-4 contenido-tabla">Arreglos 3</td>
+      <td class="col-4 contenido-tabla">
+        <p>
+          Pedir al usuario que ingrese calificaciones y a su vez ordenarlas de
+          mayor a menor.
+        </p>
+      </td>
+      <td class="col-4 contenido-tabla">
+        <form>
+          <div class="form-group">
+            <label>Ingresa tus calificaciones</label>
+            <input
+              type="number"
+              class="form-control"
+              [(ngModel)]="calificacion_array"
+              name="calificaciones_ordenadas"
+            />
+            <button
+              type="button"
+              class="btn btn-secondary mt-2"
+              (click)="ordenar_calificaciones()"
+            >
+              Agregar
+            </button>
+          </div>
+          <div class="alert alert-danger mt-3" role="alert">
+            <ul *ngFor="let c of calificaciones">
+              <li>{{ c }}</li>
+            </ul>
+          </div>
+        </form>
+      </td>
+    </tr>
   </tbody>
 </table>

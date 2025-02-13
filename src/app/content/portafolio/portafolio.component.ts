@@ -30,11 +30,19 @@ export class PortafolioComponent {
   numero2!: number;
   operacion!: string;
   resultado: number | string = '';
+
+  //array alumnos
   alumnos: Array<string> = [];
   alumno!: string;
+
+  //array numeros telefonicos
   numeros_telefonicos: string[] = [];
   numero_telefonico: string = '';
   mensaje_error: string = '';
+
+  //array_calificaciones
+  calificaciones: Array<number> = [];
+  calificacion_array!: number;
 
   // 2. Metodos
   //!Este metodo se ejecuta al momento de iniciar la pagina
@@ -156,6 +164,14 @@ export class PortafolioComponent {
     // Si la longitud es mayor a 10, recortar
     if (this.numero_telefonico.length > 10) {
       this.numero_telefonico = this.numero_telefonico.slice(0, 10);
+    }
+  }
+
+  ordenar_calificaciones() {
+    if (this.calificacion_array >= 0 && this.calificacion_array <= 10) {
+      this.calificaciones.push(this.calificacion_array);
+      this.calificaciones.sort((a, b) => b - a);
+      this.calificacion_array = 0;
     }
   }
 }
