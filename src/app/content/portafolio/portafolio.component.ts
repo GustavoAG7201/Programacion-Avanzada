@@ -44,6 +44,25 @@ export class PortafolioComponent {
   calificaciones: Array<number> = [];
   calificacion_array!: number;
 
+  //OBJETOS
+
+  libro = {
+    autor: '',
+    apublicacion: 0,
+    titulo: '',
+    editorial: '',
+    paginas: 0,
+  };
+
+  //Declaracion de un arreglo para almacenar un objeto
+  libros: {
+    autor: string;
+    apublicacion: number;
+    titulo: string;
+    editorial: string;
+    paginas: number;
+  }[] = [];
+
   // 2. Metodos
   //!Este metodo se ejecuta al momento de iniciar la pagina
   ngOnInit() {
@@ -173,5 +192,9 @@ export class PortafolioComponent {
       this.calificaciones.sort((a, b) => b - a);
       this.calificacion_array = 0;
     }
+  }
+
+  guardar_libro() {
+    this.libros.push({ ...this.libro });
   }
 }

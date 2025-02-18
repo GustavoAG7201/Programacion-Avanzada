@@ -471,5 +471,102 @@
         </form>
       </td>
     </tr>
+    <!--** TEMA 6 -->
+    <tr>
+      <td class="col-4 contenido-tabla fw-bold">Objetos</td>
+      <td class="col-4 contenido-tabla">
+        <p class="fw-bold">Ejercicio 1</p>
+        <p class="fw-bold">
+          a) Solicita al usuario los datos de un libro y agregalos a un arreglo.
+          Ademas agregar un campo en donde se muestre las opciones de
+          ordenamiento y ordene la lista en base a ese campos
+        </p>
+        <ul class="fw-bold">
+          <li>Autor</li>
+          <li>Año</li>
+          <li>Titulo</li>
+          <li>Editorial</li>
+          <li>Numero de paginas</li>
+        </ul>
+      </td>
+      <td class="col-4 contenido-tabla">
+        <form>
+          <div class="form-group">
+            <label class="fw-bold">Autor:</label>
+            <input
+              type="text"
+              class="form-control"
+              [(ngModel)]="libro.autor"
+              name="autor"
+            />
+            <label class="fw-bold">Año:</label>
+            <input
+              type="text"
+              class="form-control"
+              [(ngModel)]="libro.apublicacion"
+              name="año"
+            />
+            <label class="fw-bold">Titulo:</label>
+            <input
+              type="text"
+              class="form-control"
+              [(ngModel)]="libro.titulo"
+              name="titulo"
+            />
+            <label class="fw-bold">Editorial:</label>
+            <input
+              type="text"
+              class="form-control"
+              [(ngModel)]="libro.editorial"
+              name="editorial"
+            />
+            <label class="fw-bold">Numero de paginas:</label>
+            <input
+              type="text"
+              class="form-control"
+              [(ngModel)]="libro.paginas"
+              name="paginas"
+            />
+            <button
+              type="button"
+              class="btn btn-secondary mt-2"
+              (click)="guardar_libro()"
+            >
+              Guardar
+            </button>
+          </div>
+          <table
+            class="table table-bordered table-sm table-striped mt-2 alert alert-danger"
+          >
+            <thead>
+              <tr>
+                <th>Autor</th>
+                <th>Año Publicacion</th>
+                <th>Tiulo</th>
+                <th>Editorial</th>
+                <th>Numero de Paginas</th>
+              </tr>
+            </thead>
+            <tbody *ngFor="let libro of libros">
+              <tr>
+                <td class="col-4">
+                  {{ libro.autor }}
+                </td>
+                <td>
+                  {{ libro.apublicacion }}
+                </td>
+                <td>{{ libro.titulo }}</td>
+                <td>
+                  {{ libro.editorial }}
+                </td>
+                <td>
+                  {{ libro.paginas }}
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </form>
+      </td>
+    </tr>
   </tbody>
 </table>
