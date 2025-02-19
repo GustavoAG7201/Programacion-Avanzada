@@ -1,5 +1,51 @@
-<!--! Ejercicio 3. Mostrar un texto en pantalla -->
-<!-- <p class="fw-bold text-danger">{{texto}}</p> -->
+<!--! PRUEBA DE TARJETAS PARA MEJORAR LAS VISTAS DE LOS FORMS -->
+<div class="container mt-4">
+  <div class="accordion" id="accordionCards">
+    <!-- Tarjeta 1 -->
+    <div class="accordion-item">
+      <h2 class="accordion-header">
+        <button
+          class="accordion-button"
+          data-bs-toggle="collapse"
+          data-bs-target="#collapseOne"
+        >
+          Uso de variables
+        </button>
+      </h2>
+      <div
+        id="collapseOne"
+        class="accordion-collapse collapse show"
+        data-bs-parent="#accordionCards"
+      >
+        <div class="accordion-body">
+          <form>
+            <div class="mb-3">
+              <label class="form-label">Por favor ingresa tu nombre:</label>
+              <input
+                type="text"
+                class="form-control"
+                name="texto"
+                placeholder="Escriba aquí"
+                [(ngModel)]="texto"
+              />
+            </div>
+            <button
+              type="submit"
+              class="btn btn-primary w-100"
+              (click)="saludar()"
+            >
+              Enviar
+            </button>
+          </form>
+          <div class="alert alert-danger mt-2">
+            <p>Resultado: {{ saludo }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!--! FIN DE LA PRUEBA -->
 
 <table class="table table-sm table-striped table-hover">
   <thead>
@@ -20,37 +66,9 @@
       <td class="text-center col-4 h3 subtema-tabla">Resultado</td>
     </tr>
     <tr>
-      <!--* EJERCICIO 1 -->
-      <td class="col-4 contenido-tabla fw-bold">1. Uso de variables</td>
-      <td class="col-4 contenido-tabla fw-bold">
-        Recibe un texto y lo muestra en pantalla
-      </td>
-      <td class="col-4 contenido-tabla">
-        <form>
-          <div class="form-group">
-            <label class="fw-bold">¿Cual es tu nombre?</label>
-            <input
-              type="text"
-              class="form-control w-50"
-              name="text"
-              [(ngModel)]="texto"
-              placeholder="Ingresa tu nombre"
-            />
-            <button
-              type="button"
-              class="btn btn-secondary mt-2"
-              (click)="saludar()"
-            >
-              Saludar
-            </button>
-          </div>
-          <div class="alert alert-danger mt-3" role="alert">
-            <p>Resultado: {{ saludo }}</p>
-          </div>
-        </form>
-      </td>
+      <!--* EJERCICIO 2 -->
     </tr>
-    <!--* EJERCICIO 2 -->
+
     <tr>
       <td class="col-4 contenido-tabla fw-bold">2. Combinaciones</td>
       <td class="col-4 contenido-tabla fw-bold">
@@ -565,6 +583,14 @@
               </tr>
             </tbody>
           </table>
+          <label class="fw-bold">Ordenar por:</label>
+          <select class="form-control selectpicker">
+            <option value="autor">Autor</option>
+            <option value="apublicacion">Año de publicacion></option>
+            <option value="titulo">Titulo</option>
+            <option value="editorial">Editorial</option>
+            <option value="paginas">Numero de paginas</option>
+          </select>
         </form>
       </td>
     </tr>

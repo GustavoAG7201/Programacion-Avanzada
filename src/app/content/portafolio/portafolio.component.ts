@@ -16,10 +16,6 @@ export class PortafolioComponent {
   nombre_completo!: string;
   num1!: number;
   num2!: number;
-  // resultado_suma!: number;
-  // resultado_resta!: number;
-  // resultado_multi!: number;
-  // resultado_div!: number;
   gfarenheit!: number;
   gcelsius!: number;
   genero!: string;
@@ -62,6 +58,8 @@ export class PortafolioComponent {
     editorial: string;
     paginas: number;
   }[] = [];
+
+  //Variables de ordenamiento Objeto Libro
 
   // 2. Metodos
   //!Este metodo se ejecuta al momento de iniciar la pagina
