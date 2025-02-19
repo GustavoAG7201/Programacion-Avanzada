@@ -9,7 +9,9 @@ import { FormsModule } from '@angular/forms';
 export class PortafolioComponent {
   // 1. Atributos/Variables/Tipos de datos
 
+  //Uso de variables
   texto!: string;
+  //Saludo
   saludo!: string;
   nombre!: string;
   apellido!: string;

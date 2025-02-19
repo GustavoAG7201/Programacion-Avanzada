@@ -1,7 +1,52 @@
 <!--! PRUEBA DE TARJETAS PARA MEJORAR LAS VISTAS DE LOS FORMS -->
 <div class="container mt-4">
   <div class="accordion" id="accordionCards">
-    <!-- Tarjeta 1 -->
+    <!--* EJERCICIO 1 *-->
+    <div class="accordion-item">
+      <h2 class="accordion-header">
+        <button
+          class="accordion-button"
+          data-bs-toggle="collapse"
+          data-bs-target="#collapseTwo"
+        >
+          Uso de variables
+        </button>
+      </h2>
+      <div
+        id="collapseTwo"
+        class="accordion-collapse collapse"
+        data-bs-parent="#accordionCards"
+      >
+        <div class="accordion-body">
+          <form>
+            <div class="mb-3">
+              <p class="fw-bold">
+                Recibe una variable y muestrala en pantalla.
+              </p>
+              <label class="form-label">Por favor ingresa tu nombre:</label>
+              <input
+                type="text"
+                class="form-control"
+                name="texto"
+                placeholder="Escriba aquí"
+                [(ngModel)]="texto"
+              />
+            </div>
+            <button
+              type="submit"
+              class="btn btn-primary w-100"
+              (click)="saludar()"
+            >
+              Enviar
+            </button>
+          </form>
+          <div class="alert alert-danger mt-2">
+            <p>Resultado: {{ saludo }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--* EJERCICIO 2 *-->
     <div class="accordion-item">
       <h2 class="accordion-header">
         <button
@@ -9,18 +54,29 @@
           data-bs-toggle="collapse"
           data-bs-target="#collapseOne"
         >
-          Uso de variables
+          Combinaciones
         </button>
       </h2>
       <div
         id="collapseOne"
-        class="accordion-collapse collapse show"
+        class="accordion-collapse collapse"
         data-bs-parent="#accordionCards"
       >
         <div class="accordion-body">
+          <p class="fw-bold">
+            Recibe un nombre con su apellido para contactenarlos.
+          </p>
           <form>
             <div class="mb-3">
-              <label class="form-label">Por favor ingresa tu nombre:</label>
+              <label class="form-label">Ingresa tu nombre:</label>
+              <input
+                type="text"
+                class="form-control"
+                name="texto"
+                placeholder="Escriba aquí"
+                [(ngModel)]="texto"
+              />
+              <label class="form-label">Ingresa tu apellido:</label>
               <input
                 type="text"
                 class="form-control"
