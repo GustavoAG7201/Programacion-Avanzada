@@ -7,13 +7,13 @@
         <button
           class="accordion-button"
           data-bs-toggle="collapse"
-          data-bs-target="#collapseTwo"
+          data-bs-target="#collapseOne"
         >
           Uso de variables
         </button>
       </h2>
       <div
-        id="collapseTwo"
+        id="collapseOne"
         class="accordion-collapse collapse"
         data-bs-parent="#accordionCards"
       >
@@ -40,7 +40,7 @@
               Enviar
             </button>
           </form>
-          <div class="alert alert-danger mt-2">
+          <div class="alert alert-primary mt-2">
             <p>Resultado: {{ saludo }}</p>
           </div>
         </div>
@@ -52,13 +52,13 @@
         <button
           class="accordion-button"
           data-bs-toggle="collapse"
-          data-bs-target="#collapseOne"
+          data-bs-target="#collapseTwo"
         >
           Combinaciones
         </button>
       </h2>
       <div
-        id="collapseOne"
+        id="collapseTwo"
         class="accordion-collapse collapse"
         data-bs-parent="#accordionCards"
       >
@@ -72,29 +72,369 @@
               <input
                 type="text"
                 class="form-control"
-                name="texto"
+                name="nombre"
                 placeholder="Escriba aquí"
-                [(ngModel)]="texto"
+                [(ngModel)]="nombre"
               />
               <label class="form-label">Ingresa tu apellido:</label>
               <input
                 type="text"
                 class="form-control"
-                name="texto"
+                name="apellido"
                 placeholder="Escriba aquí"
-                [(ngModel)]="texto"
+                [(ngModel)]="apellido"
               />
             </div>
             <button
               type="submit"
               class="btn btn-primary w-100"
-              (click)="saludar()"
+              (click)="saludo_nombre_completo()"
             >
               Enviar
             </button>
           </form>
-          <div class="alert alert-danger mt-2">
-            <p>Resultado: {{ saludo }}</p>
+          <div class="alert alert-primary mt-2">
+            <p>Resultado: {{ nombre_completo }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--* EJERCICIO 3 *-->
+    <div class="accordion-item">
+      <h2 class="accordion-header">
+        <button
+          class="accordion-button"
+          data-bs-toggle="collapse"
+          data-bs-target="#collapseThree"
+        >
+          Conversiones
+        </button>
+      </h2>
+      <div
+        id="collapseThree"
+        class="accordion-collapse collapse"
+        data-bs-parent="#accordionCards"
+      >
+        <div class="accordion-body">
+          <p class="fw-bold">Convierte grados farenheita celsius</p>
+          <form>
+            <div class="mb-3">
+              <label class="form-label">Ingresa tus grados farenheit:</label>
+              <input
+                type="number"
+                class="form-control"
+                name="gfarenheit"
+                placeholder="Escriba aquí"
+                [(ngModel)]="gfarenheit"
+              />
+            </div>
+            <button
+              type="submit"
+              class="btn btn-primary w-100"
+              (click)="calculo_grados()"
+            >
+              Enviar
+            </button>
+          </form>
+          <div class="alert alert-primary mt-2">
+            <p>Resultado: {{ gcelsius }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--* EJERCICIO 4 *-->
+    <div class="accordion-item">
+      <h2 class="accordion-header">
+        <button
+          class="accordion-button"
+          data-bs-toggle="collapse"
+          data-bs-target="#collapseFour"
+        >
+          Condicionales
+        </button>
+      </h2>
+      <div
+        id="collapseFour"
+        class="accordion-collapse collapse"
+        data-bs-parent="#accordionCards"
+      >
+        <div class="accordion-body">
+          <p class="fw-bold">
+            Solicitar al usuario su genero, dependiendo de su repsuesta mostrar
+            un mensaje.
+          </p>
+          <form>
+            <div class="mb-3">
+              <label class="form-label">Selecciona tu genero:</label>
+              <select
+                name="genero"
+                class="form-control w-50"
+                [(ngModel)]="genero"
+              >
+                <option value="1">Masculino</option>
+                <option value="2">Femenino</option>
+              </select>
+            </div>
+            <button
+              type="submit"
+              class="btn btn-primary w-100"
+              (click)="generos()"
+            >
+              Enviar
+            </button>
+          </form>
+          <div class="alert alert-primary mt-2">
+            <p>Resultado: {{ mensaje_genero }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--* EJERCICIO 5 *-->
+    <div class="accordion-item">
+      <h2 class="accordion-header">
+        <button
+          class="accordion-button"
+          data-bs-toggle="collapse"
+          data-bs-target="#collapseFive"
+        >
+          Calificaciones
+        </button>
+      </h2>
+      <div
+        id="collapseFive"
+        class="accordion-collapse collapse"
+        data-bs-parent="#accordionCards"
+      >
+        <div class="accordion-body">
+          <p class="fw-bold">
+            Solicitar al usuario una calificacion del 0-100. Mostrar un mensaje
+            segun la nota
+          </p>
+          <form>
+            <div class="mb-3">
+              <label class="form-label">Ingresa tu calificacion:</label>
+              <input
+                type="number"
+                class="form-control w-50"
+                id="calificacion"
+                [(ngModel)]="calificacion"
+                name="calificacion"
+                required
+              />
+            </div>
+            <button
+              type="submit"
+              class="btn btn-primary w-100"
+              (click)="clasificar_calificacion()"
+            >
+              Enviar
+            </button>
+          </form>
+          <div class="alert alert-primary mt-2">
+            <p>Resultado: {{ resultado_calificacion }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--* EJERCICIO 6 *-->
+    <div class="accordion-item">
+      <h2 class="accordion-header">
+        <button
+          class="accordion-button"
+          data-bs-toggle="collapse"
+          data-bs-target="#collapseSix"
+        >
+          Operaciones
+        </button>
+      </h2>
+      <div
+        id="collapseSix"
+        class="accordion-collapse collapse"
+        data-bs-parent="#accordionCards"
+      >
+        <div class="accordion-body">
+          <p class="fw-bold">
+            Solicitar dos numeros al usuario (por medio de un formulario), y
+            dales la opcion de sumar, restar, multiplicar y dividir dichos
+            numeros ademas de mostrar el resultado.
+          </p>
+          <form>
+            <div class="mb-3">
+              <label class="form-label">Primer número</label>
+              <input
+                type="number"
+                class="form-control"
+                [(ngModel)]="numero1"
+                name="numero1"
+                required
+              />
+              <label class="form-label">Segundo número</label>
+              <input
+                type="number"
+                class="form-control"
+                [(ngModel)]="numero2"
+                name="numero2"
+                required
+              />
+              <label class="form-label">Seleccione una operación</label>
+              <select
+                class="form-select"
+                [(ngModel)]="operacion"
+                name="operacion"
+                required
+              >
+                <option value="suma">Suma</option>
+                <option value="resta">Resta</option>
+                <option value="multiplicacion">Multiplicación</option>
+                <option value="division">División</option>
+              </select>
+            </div>
+            <button
+              type="submit"
+              class="btn btn-primary w-100"
+              (click)="operar()"
+            >
+              Enviar
+            </button>
+          </form>
+          <div class="alert alert-primary mt-2">
+            <p>Resultado: {{ resultado }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--* EJERCICIO 7 *-->
+    <div class="accordion-item">
+      <h2 class="accordion-header">
+        <button
+          class="accordion-button"
+          data-bs-toggle="collapse"
+          data-bs-target="#collapseSeven"
+        >
+          Arreglos
+        </button>
+      </h2>
+      <div
+        id="collapseSeven"
+        class="accordion-collapse collapse"
+        data-bs-parent="#accordionCards"
+      >
+        <div class="accordion-body">
+          <p class="fw-bold">Ejercicios de arreglos.</p>
+          <!--todo Primer ejercicio -->
+          <div
+            class="container justify-content-center align-items-center vh-50"
+          >
+            <div class="bg-primary p-4 rounded shado-lg w-100 w-md-50 w-lg-25">
+              <form>
+                <p class="text-white fw-bold">
+                  1. Mostrar una lista de elementos del arreglo
+                </p>
+                <div class="mb-3">
+                  <label class="form-label">Nombre del alumno:</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    [(ngModel)]="alumno"
+                    name="alumno"
+                    placeholder="Escriba aquí"
+                    required
+                  />
+                </div>
+                <button
+                  type="submit"
+                  class="btn btn-secondary w-100"
+                  (click)="agregar()"
+                >
+                  Enviar
+                </button>
+                <div class="alert alert-primary mt-2">
+                  <ul *ngFor="let a of alumnos">
+                    <li>{{ a }}</li>
+                  </ul>
+                </div>
+              </form>
+            </div>
+          </div>
+
+          <!--todo segundo ejercicio -->
+          <div
+            class="container justify-content-center align-items-center vh-50 mt-5"
+          >
+            <div class="bg-primary p-4 rounded shado-lg w-100 w-md-50 w-lg-25">
+              <form>
+                <p class="text-white fw-bold">
+                  2. Mostrar una lista de numeros telefonicos (tipo de dato
+                  numerico) a un arreglo. Y limpiar el campo de entrada cada vez
+                  que se agrega uno nuevo.
+                </p>
+                <div class="mb-3">
+                  <label class="form label"
+                    >Ingresa el numero telefonico:</label
+                  >
+                  <input
+                    type="text"
+                    class="form-control"
+                    [(ngModel)]="numero_telefonico"
+                    name="numero_telefonico"
+                    placeholder="Escriba aquí"
+                    required
+                    (input)="validar_telefono()"
+                  />
+                </div>
+                <div *ngIf="mensaje_error" class="alert alert-danger mt-2">
+                  <p>{{ mensaje_error }}</p>
+                </div>
+                <button
+                  type="submit"
+                  class="btn btn-secondary w-100"
+                  (click)="agregar_telefono()"
+                >
+                  Enviar
+                </button>
+                <div class="alert alert-primary mt-2">
+                  <ul *ngFor="let n of numeros_telefonicos">
+                    <li>{{ n }}</li>
+                  </ul>
+                </div>
+              </form>
+            </div>
+          </div>
+          <!--todo tercer ejercicio -->
+          <div
+            class="container justify-content-center align-items-center vh-50 mt-5"
+          >
+            <div class="bg-primary p-4 rounded shado-lg w-100 w-md-50 w-lg-25">
+              <form>
+                <p class="text-white fw-bold">
+                  3. Pedir al usuario que ingrese calificaciones y a su vez
+                  ordenarlas de mayor a menor.
+                </p>
+                <div class="mb-3">
+                  <label class="form-label">
+                    Ingresa tus calificaciones.
+                  </label>
+                  <input
+                    type="number"
+                    class="form-control"
+                    [(ngModel)]="calificacion_array"
+                    name="calificacion_array"
+                  />
+                  <button
+                    type="submit"
+                    class="btn btn-secondary mt-2"
+                    (click)="ordenar_calificaciones()"
+                  >
+                    Agregar
+                  </button>
+                  <div class="alert alert-primary mt-2">
+                    <ul *ngFor="let c of calificaciones">
+                      <li>{{ c }}</li>
+                    </ul>
+                  </div>
+                </div>
+              </form>
+            </div>
           </div>
         </div>
       </div>
@@ -121,9 +461,7 @@
       <td class="text-center col-4 h3 subtema-tabla">Descripcion</td>
       <td class="text-center col-4 h3 subtema-tabla">Resultado</td>
     </tr>
-    <tr>
-      <!--* EJERCICIO 2 -->
-    </tr>
+    <tr></tr>
 
     <tr>
       <td class="col-4 contenido-tabla fw-bold">2. Combinaciones</td>
@@ -271,167 +609,6 @@
             <p>Resultado: {{ mensaje_genero }}</p>
           </div>
         </form>
-      </td>
-    </tr>
-    <tr>
-      <!--* EJERCICIO 5 -->
-      <td class="col-4 contenido-tabla fw-bold">5. Calificaciones</td>
-      <td class="col-4 contenido-tabla fw-bold">
-        B. Solicitar al usuario una calificacion del 0-100. Mostrar un mensaje
-        segun la nota
-      </td>
-      <td class="col-4 contenido-tabla">
-        <form (ngSubmit)="clasificar_calificacion()">
-          <div class="form-group fw-bold">
-            <label for="calificacion">Ingresa tu calificación:</label>
-            <input
-              type="number"
-              class="form-control w-50"
-              id="calificacion"
-              [(ngModel)]="calificacion"
-              name="calificacion"
-              required
-            />
-          </div>
-          <button type="submit" class="btn btn-secondary mt-2">Evaluar</button>
-          <div class="alert alert-danger mt-3" role="alert">
-            <p>Resultado: {{ resultado_calificacion }}</p>
-          </div>
-        </form>
-      </td>
-    </tr>
-    <!--* EJERCICIO 7 -->
-    <tr>
-      <td class="col-4 contenido-tabla fw-bold">6. Seleccion de operaciones</td>
-      <td class="col-4 contenido-tabla fw-bold">
-        C. Solicitar dos numeros al usuario (por medio de un formulario) y
-        darles la opcion de sumar, restar, multiplicar y dividir dichos numeros
-        ademas mostrar el resultado
-      </td>
-      <td class="text-center col-4 contenido-tabla">
-        <form (ngSubmit)="operar()">
-          <div class="container">
-            <div class="row">
-              <div class="col-6 p-1">
-                <label for="inputnum1" class="form-label fw-bold"
-                  >Primer número</label
-                >
-                <input
-                  type="number"
-                  class="form-control"
-                  id="inputnum1"
-                  [(ngModel)]="numero1"
-                  name="numero1"
-                  required
-                />
-              </div>
-              <div class="col-6 p-1">
-                <label for="inputnum2" class="form-label fw-bold"
-                  >Segundo número</label
-                >
-                <input
-                  type="number"
-                  class="form-control"
-                  id="inputnum2"
-                  [(ngModel)]="numero2"
-                  name="numero2"
-                  required
-                />
-              </div>
-            </div>
-            <div class="row mt-3">
-              <div class="col-12">
-                <label for="operacion" class="form-label fw-bold"
-                  >Seleccione una operación</label
-                >
-                <select
-                  class="form-select"
-                  [(ngModel)]="operacion"
-                  name="operacion"
-                  required
-                >
-                  <option value="suma">Suma</option>
-                  <option value="resta">Resta</option>
-                  <option value="multiplicacion">Multiplicación</option>
-                  <option value="division">División</option>
-                </select>
-              </div>
-            </div>
-            <div class="row mt-3">
-              <div class="col-12 text-center">
-                <button type="submit" class="btn btn-secondary w-50">
-                  Calcular
-                </button>
-              </div>
-            </div>
-            <div class="alert alert-danger mt-3" role="alert">
-              <p>Resultado: {{ resultado }}</p>
-            </div>
-          </div>
-        </form>
-        <!-- <div class="container">
-          <div class="row">
-            <div class="col-6 p1">
-              <label for="inputnum1">Primer numero</label>
-              <input
-                type="number"
-                class="form-control"
-                id="inputnum1"
-                [(ngModel)]="numero1"
-              />
-            </div>
-            <div class="col-6 p1">
-              <label for="inputnum2">Segundo numero</label>
-              <input
-                type="number"
-                class="form-control"
-                id="inputnum2"
-                [(ngModel)]="numero2"
-              />
-            </div>
-          </div>
-        </div>
-        <div class="container">
-          <div class="row">
-            <div class="col-6 p-1">
-              <button
-                type="button"
-                class="btn btn-secondary w-100"
-                (click)="operar('suma')"
-              >
-                Suma
-              </button>
-            </div>
-            <div class="col-6 p-1">
-              <button
-                type="button"
-                class="btn btn-secondary w-100"
-                (click)="operar('resta')"
-              >
-                Resta
-              </button>
-            </div>
-            <div class="col-6 p-1">
-              <button
-                type="button"
-                class="btn btn-secondary w-100"
-                (click)="operar('multiplicacion')"
-              >
-                Multiplicacion
-              </button>
-            </div>
-            <div class="col-6 p-1">
-              <button
-                type="button"
-                class="btn btn-secondary w-100"
-                (click)="operar('division')"
-              >
-                Division
-              </button>
-            </div>
-            <h3>Resultado: {{ resultado }}</h3>
-          </div>
-        </div> -->
       </td>
     </tr>
     <tr>

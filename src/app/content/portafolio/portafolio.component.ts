@@ -16,10 +16,11 @@ export class PortafolioComponent {
   nombre!: string;
   apellido!: string;
   nombre_completo!: string;
-  num1!: number;
-  num2!: number;
+
+  //Conversiones
   gfarenheit!: number;
   gcelsius!: number;
+  //
   genero!: string;
   mensaje_genero!: string;
   calificacion!: number;
@@ -95,7 +96,7 @@ export class PortafolioComponent {
   }
 
   saludo_nombre_completo() {
-    this.nombre_completo = '!Hola ' + this.nombre + this.apellido + '!';
+    this.nombre_completo = '!Hola ' + this.nombre + ' ' + this.apellido + '!';
   }
 
   calculo_grados() {
