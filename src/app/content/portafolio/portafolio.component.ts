@@ -63,6 +63,7 @@ export class PortafolioComponent {
   }[] = [];
 
   //Variables de ordenamiento Objeto Libro
+  criterioOrdenamiento: string = 'autor';
 
   // 2. Metodos
   //!Este metodo se ejecuta al momento de iniciar la pagina
@@ -155,15 +156,10 @@ export class PortafolioComponent {
     }
   }
   agregar() {
-    // alert('Si funciona! :D');
-    // alert(this.alumno);
-
     if (this.alumno.trim() !== '') {
       this.alumnos.push(this.alumno);
       this.alumno = '';
     }
-
-    // console.log(this.alumnos);
   }
 
   agregar_telefono() {
@@ -197,5 +193,26 @@ export class PortafolioComponent {
 
   guardar_libro() {
     this.libros.push({ ...this.libro });
+
+    this.libro = {
+      autor: '',
+      apublicacion: 0,
+      titulo: '',
+      editorial: '',
+      paginas: 0,
+    };
+  }
+
+  ordenarLibros() {
+    this.libros.sort((a, b) => {
+      let valorA = a[this.criterioOrdenamiento as keyof typeof a];
+      let valorB = b[this.criterioOrdenamiento as keyof typeof b];
+
+      if (typeof valorA === 'number' && typeof valorB === 'number') {
+        return valorB - valorA;
+      } else {
+        return valorA.toString().localeCompare(valorB.toString());
+      }
+    });
   }
 }
