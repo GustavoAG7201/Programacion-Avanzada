@@ -226,14 +226,13 @@
               <input
                 type="number"
                 class="form-control w-50"
-                id="calificacion"
                 [(ngModel)]="calificacion"
                 name="calificacion"
                 required
               />
             </div>
             <button
-              type="submit"
+              type="button"
               class="btn btn-primary w-100"
               (click)="clasificar_calificacion()"
             >
@@ -300,7 +299,7 @@
               </select>
             </div>
             <button
-              type="submit"
+              type="button"
               class="btn btn-primary w-100"
               (click)="operar()"
             >
@@ -581,6 +580,63 @@
                     </tr>
                   </tbody>
                 </table>
+              </div>
+            </div>
+            <!--todo Segundo ejercicio -->
+            <div
+              class="container justify-content-center align-items-center vh-50 mt-5"
+            >
+              <div
+                class="bg-primary p-4 rounded shado-lg w-100 w-md-50 w-lg-25"
+              >
+                <form>
+                  <p class="text-white fw-bold">2.</p>
+
+                  <ul class="text-white fw-bold">
+                    <li>
+                      Crea un arreglo de tipo objeto en el que incluyas 5
+                      frutas, las frutas deben contener los campos: Nombre e
+                      imagen.
+                    </li>
+                    <li>Crear un combo que muestre las frutas del arreglo.</li>
+                    <li>
+                      Crear un boton para agregar la fruta que seleccione el
+                      usuario.
+                    </li>
+                    <li>
+                      Mostrar las frutas seleccionadas en un listado en donde
+                      menciones el nombre y la imagen.
+                    </li>
+                  </ul>
+
+                  <div class="mb-3">
+                    <form>
+                      <label class="form-label">Elige una fruta:</label>
+                      <select
+                        class="form-control"
+                        name="fruta_seleccionada"
+                        type="text"
+                        [(ngModel)]="fruta_seleccionada"
+                      >
+                        <option [ngValue]="fruta" *ngFor="let fruta of frutas">
+                          {{ fruta.nombre }}
+                        </option>
+                      </select>
+                      <button
+                        class="btn btn-secondary w-100 mt-2"
+                        (click)="agregar_fruta()"
+                      >
+                        Agregar Fruta
+                      </button>
+                      <div class="alert alert-primary mt-2">
+                        <ul *ngFor="let fs of frutas_seleccionadas">
+                          <li>{{ fs.nombre }}</li>
+                          <img [src]="fs.imagen" class="rounded d-block" />
+                        </ul>
+                      </div>
+                    </form>
+                  </div>
+                </form>
               </div>
             </div>
           </div>

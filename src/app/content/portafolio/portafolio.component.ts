@@ -1,6 +1,13 @@
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
+//!Interfaces (siempre se declaran aqui)
+//* Define una estructura especifica para un objero de la clase
+interface Fruta {
+  nombre: string;
+  imagen: string;
+}
+
 @Component({
   selector: 'app-portafolio',
   templateUrl: './portafolio.component.html',
@@ -43,7 +50,9 @@ export class PortafolioComponent {
   calificaciones: Array<number> = [];
   calificacion_array!: number;
 
-  //OBJETOS
+  //! Interfaces
+
+  //!OBJETOS
 
   libro = {
     autor: '',
@@ -53,7 +62,7 @@ export class PortafolioComponent {
     paginas: 0,
   };
 
-  //Declaracion de un arreglo para almacenar un objeto
+  //!Declaracion de un arreglo para almacenar un objeto
   libros: {
     autor: string;
     apublicacion: number;
@@ -61,6 +70,17 @@ export class PortafolioComponent {
     editorial: string;
     paginas: number;
   }[] = [];
+
+  frutas: Fruta[] = [
+    { nombre: 'Manzana', imagen: '/imagenes/manzana.jpeg' },
+    { nombre: 'Mango', imagen: '/imagenes/mango.jpeg' },
+    { nombre: 'Piña', imagen: '/imagenes/pina.jpeg' },
+    { nombre: 'Naranja', imagen: '/imagenes/naranja.jpeg' },
+    { nombre: 'Coco', imagen: '/imagenes/coco.jpeg' },
+  ];
+
+  frutas_seleccionadas: Fruta[] = [];
+  fruta_seleccionada!: Fruta;
 
   //Variables de ordenamiento Objeto Libro
   criterioOrdenamiento: string = 'autor';
@@ -214,5 +234,9 @@ export class PortafolioComponent {
         return valorA.toString().localeCompare(valorB.toString());
       }
     });
+  }
+
+  agregar_fruta() {
+    this.frutas_seleccionadas.push(this.fruta_seleccionada);
   }
 }
