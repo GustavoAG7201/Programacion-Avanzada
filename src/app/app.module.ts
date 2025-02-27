@@ -12,6 +12,7 @@ import { PortafolioComponent } from './content/portafolio/portafolio.component';
 
 import { RouterModule, Routes } from '@angular/router';
 import { FormsModule } from '@angular/forms';
+import { Examen2Component } from './content/examen2/examen2.component';
 
 const appRoutes: Routes = [
   { path: '', component: InicioComponent },
@@ -28,6 +29,7 @@ const appRoutes: Routes = [
     FooterComponent,
     InicioComponent,
     PortafolioComponent,
+    Examen2Component,
   ],
   imports: [
     BrowserModule,
