@@ -20,6 +20,7 @@ export class PortafolioComponent {
   texto!: string;
   //Saludo
   saludo!: string;
+
   nombre!: string;
   apellido!: string;
   nombre_completo!: string;
@@ -30,8 +31,10 @@ export class PortafolioComponent {
   //
   genero!: string;
   mensaje_genero!: string;
+  //
   calificacion!: number;
   resultado_calificacion!: string;
+  //
   numero1!: number;
   numero2!: number;
   operacion!: string;

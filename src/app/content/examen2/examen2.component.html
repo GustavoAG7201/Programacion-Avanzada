@@ -1,1 +1,38 @@
-<p>examen2 works!</p>
+<form>
+  <label>¿Que deseas pedir?: </label><br />
+  <select
+    class="form-control"
+    type="text"
+    name="pedidoSeleccionado"
+    [(ngModel)]="pedidoSeleccionado"
+  >
+    <option [ngValue]="pedido" *ngFor="let pedido of pedidos">
+      {{ pedido.nombre }}
+    </option>
+  </select>
+  <br /><br />
+  <button
+    class="btn btn-secondary w-100"
+    id="bottone5"
+    (click)="agregarProducto()"
+  >
+    Agregar producto
+  </button>
+  <hr />
+  <table class="table">
+    <tr>
+      <td>Nombre</td>
+      <td>Costo</td>
+    </tr>
+    <tr *ngFor="let p of pedidosSeleccionados">
+      <td>{{ p.nombre }}</td>
+      <td>${{ p.costo }}</td>
+    </tr>
+    <tr>
+      <td>Subtotal</td>
+      <td>${{ subtotal }}</td>
+      <td>Total:</td>
+      <td>{{ total }}</td>
+    </tr>
+  </table>
+</form>
