@@ -13,6 +13,8 @@ import { PortafolioComponent } from './content/portafolio/portafolio.component';
 import { RouterModule, Routes } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { Examen2Component } from './content/examen2/examen2.component';
+import { AngularFireModule } from '@angular/fire/compat';
+import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 
 const appRoutes: Routes = [
   { path: '', component: InicioComponent },
@@ -36,6 +38,16 @@ const appRoutes: Routes = [
     AppRoutingModule,
     FormsModule,
     RouterModule.forRoot(appRoutes, { enableTracing: true }),
+    AngularFireModule.initializeApp({
+      apiKey: 'AIzaSyDyAo-dpFWi6i7ZNW1QINWqfZRzLP9OATc',
+      authDomain: 'gelectronics-f6ebd.firebaseapp.com',
+      projectId: 'gelectronics-f6ebd',
+      storageBucket: 'gelectronics-f6ebd.firebasestorage.app',
+      messagingSenderId: '222151776160',
+      appId: '1:222151776160:web:29b3ca6f33738f200c36c5',
+      measurementId: 'G-YDSMGX6N5P',
+    }),
+    AngularFirestoreModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
