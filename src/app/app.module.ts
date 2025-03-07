@@ -15,7 +15,7 @@ import { FormsModule } from '@angular/forms';
 import { Examen2Component } from './content/examen2/examen2.component';
 import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
-
+import { CrudService } from './servicios/crud.service';
 const appRoutes: Routes = [
   { path: '', component: InicioComponent },
   { path: 'inicio', component: InicioComponent },
@@ -49,7 +49,7 @@ const appRoutes: Routes = [
     }),
     AngularFirestoreModule,
   ],
-  providers: [],
+  providers: [CrudService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
