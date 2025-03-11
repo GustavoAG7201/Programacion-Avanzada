@@ -1,1 +1,92 @@
-<p>Este es el menu de incio</p>
+<!-- Button trigger modal -->
+<button
+  type="button"
+  class="btn btn-primary"
+  data-bs-toggle="modal"
+  data-bs-target="#exampleModal"
+>
+  Agregar articulo
+</button>
+
+<!-- Modal -->
+<div
+  class="modal fade"
+  id="exampleModal"
+  tabindex="-1"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">
+          Agregar articulo
+        </h1>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="mb-3">
+            <label class="form-label">Nombre:</label>
+            <input type="text" class="form-control" />
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Descripcion:</label>
+            <input type="text" class="form-control" />
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Categoria:</label>
+            <input type="text" class="form-select" />
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Marca:</label>
+            <input type="text" class="form-control" />
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Modelo:</label>
+            <input type="text" class="form-control" />
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Precio</label>
+            <input type="number" class="form-control" />
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Stock</label>
+            <input type="number" class="form-control" />
+          </div>
+          <div class="mb-3">
+            <label for="formFile" class="form-label"
+              >Selecciona una imagen</label
+            >
+            <input class="form-control" type="file" accept="image/*" />
+          </div>
+          <div class="mb-3">
+            <label for="garantia" class="form-label">Tiempo de Garantía</label>
+            <select class="form-select" id="garantia">
+              <option value="3">3 meses</option>
+              <option value="6">6 meses</option>
+              <option value="12">1 año</option>
+              <option value="24">2 años</option>
+              <option value="36">3 años</option>
+            </select>
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Numero de serie:</label>
+            <input type="text" class="form-control" />
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+          Cerrar
+        </button>
+        <button type="button" class="btn btn-primary">Guardar</button>
+      </div>
+    </div>
+  </div>
+</div>
