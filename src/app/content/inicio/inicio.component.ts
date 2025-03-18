@@ -8,4 +8,31 @@ import { CrudService } from '../../servicios/crud.service';
 })
 export class InicioComponent {
   constructor(private crud: CrudService) {}
+
+  form = {
+    nombreArticulo: '',
+    descripcionArticulo: '',
+    categoriaArticulo: '',
+    marcaArticulo: '',
+    modeloArticulo: '',
+    precioArticulo: 0,
+    stockArticulo: 0,
+    imagenArticulo: null,
+    numSerieArticulo: '',
+    garantiaArticulo: 0,
+  };
+
+  coleccion!: string;
+
+  insertarArticulo() {
+    this.coleccion = 'articulos';
+    this.crud.create(this.coleccion, this.form).then((response: any) => {
+      if (response) {
+        alert('Tu articulo se ha registrado correctamente!');
+      } else {
+        alert('Parece que algo salio mal el registrar tu articulo:(');
+      }
+      console.log(response);
+    });
+  }
 }
