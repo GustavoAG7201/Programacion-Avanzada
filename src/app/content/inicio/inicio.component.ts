@@ -23,6 +23,7 @@ export class InicioComponent {
   };
 
   coleccion!: string;
+  articulos: any[] = [];
 
   insertarArticulo() {
     this.coleccion = 'articulos';
@@ -33,6 +34,15 @@ export class InicioComponent {
         alert('Parece que algo salio mal el registrar tu articulo:(');
       }
       console.log(response);
+    });
+  }
+
+  // Método para cargar los artículos
+  cargarArticulos() {
+    this.coleccion = 'articulos';
+    this.crud.getAll(this.coleccion).subscribe((articulos) => {
+      this.articulos = articulos;
+      console.log('Artículos cargados:', this.articulos);
     });
   }
 }

@@ -147,3 +147,35 @@
     </div>
   </div>
 </div>
+
+<!-- Consultar articulos de la base de datos -->
+<!--** PRUEBA -->
+<div class="container mt-4">
+  <h2>Lista de Artículos</h2>
+
+  <!-- Botón para obtener artículos -->
+  <button class="btn btn-primary mb-3" (click)="cargarArticulos()">
+    Cargar Artículos
+  </button>
+
+  <!-- Mostrar artículos -->
+  <ul class="list-group">
+    <li *ngFor="let articulo of articulos" class="list-group-item">
+      <h3>{{ articulo.nombreArticulo }}</h3>
+      <p><strong>Descripción:</strong> {{ articulo.descripcionArticulo }}</p>
+      <p><strong>Categoría:</strong> {{ articulo.categoriaArticulo }}</p>
+      <p><strong>Marca:</strong> {{ articulo.marcaArticulo }}</p>
+      <p><strong>Modelo:</strong> {{ articulo.modeloArticulo }}</p>
+      <p><strong>Precio:</strong> ${{ articulo.precioArticulo }}</p>
+      <p><strong>Stock:</strong> {{ articulo.stockArticulo }}</p>
+      <p><strong>Número de serie:</strong> {{ articulo.numSerieArticulo }}</p>
+      <p><strong>Garantía:</strong> {{ articulo.garantiaArticulo }} meses</p>
+      <img
+        *ngIf="articulo.imagenArticulo"
+        [src]="articulo.imagenArticulo"
+        alt="Imagen del artículo"
+        width="150"
+      />
+    </li>
+  </ul>
+</div>

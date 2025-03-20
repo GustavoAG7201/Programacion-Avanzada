@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -20,5 +21,10 @@ export class CrudService {
           reject(false);
         });
     });
+  }
+
+  // Método para obtener todos los documentos de una colección
+  getAll(coleccion: string): Observable<any[]> {
+    return this.database.collection(coleccion).valueChanges({ idField: 'id' });
   }
 }
