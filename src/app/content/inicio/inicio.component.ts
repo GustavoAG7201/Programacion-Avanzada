@@ -25,6 +25,10 @@ export class InicioComponent {
   coleccion!: string;
   articulos: any[] = [];
 
+  ngOnInit() {
+    this.cargarArticulos();
+  }
+
   insertarArticulo() {
     this.coleccion = 'articulos';
     this.crud.create(this.coleccion, this.form).then((response: any) => {
