@@ -34,6 +34,7 @@ export class InicioComponent {
     this.crud.create(this.coleccion, this.form).then((response: any) => {
       if (response) {
         alert('Tu articulo se ha registrado correctamente!');
+        location.reload();
       } else {
         alert('Parece que algo salio mal el registrar tu articulo:(');
       }
@@ -41,7 +42,6 @@ export class InicioComponent {
     });
   }
 
-  // Método para cargar los artículos
   cargarArticulos() {
     this.coleccion = 'articulos';
     this.crud.getAll(this.coleccion).subscribe((articulos) => {

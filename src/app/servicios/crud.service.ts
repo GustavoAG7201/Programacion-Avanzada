@@ -23,7 +23,6 @@ export class CrudService {
     });
   }
 
-  // Servicio para obtener todos los documentos de una colección
   getAll(coleccion: string): Observable<any[]> {
     return this.database.collection(coleccion).valueChanges({ idField: 'id' });
   }
