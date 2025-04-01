@@ -26,4 +26,15 @@ export class CrudService {
   getAll(coleccion: string): Observable<any[]> {
     return this.database.collection(coleccion).valueChanges({ idField: 'id' });
   }
+
+  update(coleccion: string, id: string, data: any): Promise<boolean> {
+    return new Promise((resolve, reject) => {
+      this.database
+        .collection(coleccion)
+        .doc(id)
+        .update(data)
+        .then(() => resolve(true))
+        .catch(() => reject(false));
+    });
+  }
 }

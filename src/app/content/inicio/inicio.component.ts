@@ -10,6 +10,7 @@ export class InicioComponent {
   constructor(private crud: CrudService) {}
 
   form = {
+    id: '',
     nombreArticulo: '',
     descripcionArticulo: '',
     categoriaArticulo: '',
@@ -24,6 +25,9 @@ export class InicioComponent {
 
   coleccion!: string;
   articulos: any[] = [];
+
+  proceso_agregar = true;
+  proceso_editar = false;
 
   ngOnInit() {
     this.cargarArticulos();
@@ -48,5 +52,43 @@ export class InicioComponent {
       this.articulos = articulos;
       console.log('Artículos cargados:', this.articulos);
     });
+  }
+
+  agregar() {
+    this.proceso_agregar = true;
+    this.proceso_editar = false;
+    this.form = {
+      id: '',
+      nombreArticulo: '',
+      descripcionArticulo: '',
+      categoriaArticulo: '',
+      marcaArticulo: '',
+      modeloArticulo: '',
+      precioArticulo: 0,
+      stockArticulo: 0,
+      imagenArticulo: null,
+      numSerieArticulo: '',
+      garantiaArticulo: 0,
+    };
+  }
+
+  editar(articulo: any) {
+    this.proceso_agregar = false;
+    this.proceso_editar = true;
+    this.form = { ...articulo };
+  }
+
+  actualizar() {
+    this.crud
+      .update(this.coleccion, this.form.id, this.form)
+      .then((response: any) => {
+        if (response) {
+          alert('¡Tu registro se actualizó correctamente!');
+          // this.cargarArticulos();
+          location.reload();
+        } else {
+          alert('Error al actualizar el artículo.');
+        }
+      });
   }
 }

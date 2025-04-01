@@ -4,6 +4,7 @@
   class="btn btn-primary m-4"
   data-bs-toggle="modal"
   data-bs-target="#exampleModal"
+  (click)="agregar()"
 >
   Agregar articulo
 </button>
@@ -19,8 +20,19 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h1 class="modal-title fs-5" id="exampleModalLabel">
+        <h1
+          class="modal-title fs-5"
+          id="exampleModalLabel"
+          *ngIf="proceso_agregar"
+        >
           Agregar articulo
+        </h1>
+        <h1
+          class="modal-title fs-5"
+          id="exampleModalLabel"
+          *ngIf="proceso_editar"
+        >
+          Editar articulo
         </h1>
         <button
           type="button"
@@ -138,8 +150,17 @@
           type="button"
           class="btn btn-primary"
           (click)="insertarArticulo(); cargarArticulos()"
+          *ngIf="proceso_agregar"
         >
           Guardar
+        </button>
+        <button
+          type="button"
+          class="btn btn-primary"
+          (click)="actualizar(); cargarArticulos()"
+          *ngIf="proceso_editar"
+        >
+          Actualizar
         </button>
       </div>
     </div>
@@ -185,6 +206,16 @@
             alt="Imagen del artículo"
             width="100"
           />
+        </td>
+        <td>
+          <button
+            class="btn btn-warning"
+            (click)="editar(articulo)"
+            data-bs-toggle="modal"
+            data-bs-target="#exampleModal"
+          >
+            Editar
+          </button>
         </td>
       </tr>
     </tbody>
