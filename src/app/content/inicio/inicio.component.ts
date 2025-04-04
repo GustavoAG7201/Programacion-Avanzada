@@ -18,7 +18,7 @@ export class InicioComponent {
     modeloArticulo: '',
     precioArticulo: 0,
     stockArticulo: 0,
-    imagenArticulo: null,
+    imagenArticulo: '',
     numSerieArticulo: '',
     garantiaArticulo: 0,
   };
@@ -66,7 +66,7 @@ export class InicioComponent {
       modeloArticulo: '',
       precioArticulo: 0,
       stockArticulo: 0,
-      imagenArticulo: null,
+      imagenArticulo: '',
       numSerieArticulo: '',
       garantiaArticulo: 0,
     };

@@ -112,6 +112,7 @@
             >
             <input
               type="text"
+              name="imagenArticulo"
               [(ngModel)]="form.imagenArticulo"
               placeholder="Ingrese URL de la imagen"
             />
@@ -173,7 +174,8 @@
   <h2>Lista de Artículos</h2>
 
   <!-- Mostrar artículos -->
-  <table class="table table-striped table-bordered table-hover mt-3">
+
+  <table class="table table-respomsive table-bordered table-hover mt-3">
     <thead class="table-info">
       <tr>
         <th>Nombre:</th>
@@ -186,6 +188,7 @@
         <th>Numero de serie:</th>
         <th>Garantia:</th>
         <th>Imagen:</th>
+        <th>Opciones:</th>
       </tr>
     </thead>
     <tbody>
