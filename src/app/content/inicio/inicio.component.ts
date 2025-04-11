@@ -84,11 +84,24 @@ export class InicioComponent {
       .then((response: any) => {
         if (response) {
           alert('¡Tu registro se actualizó correctamente!');
-          // this.cargarArticulos();
+
           location.reload();
         } else {
           alert('Error al actualizar el artículo.');
         }
       });
+  }
+
+  eliminar(id: string) {
+    if (confirm('¿Estás seguro de que deseas eliminar este artículo?')) {
+      this.crud.delete(this.coleccion, id).then((response: boolean) => {
+        if (response) {
+          alert('Artículo eliminado correctamente.');
+          location.reload();
+        } else {
+          alert('Error al eliminar el artículo.');
+        }
+      });
+    }
   }
 }

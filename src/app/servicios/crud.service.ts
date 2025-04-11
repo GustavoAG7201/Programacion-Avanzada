@@ -37,4 +37,15 @@ export class CrudService {
         .catch(() => reject(false));
     });
   }
+
+  delete(coleccion: string, id: string): Promise<boolean> {
+    return new Promise((resolve, reject) => {
+      this.database
+        .collection(coleccion)
+        .doc(id)
+        .delete()
+        .then(() => resolve(true))
+        .catch(() => reject(false));
+    });
+  }
 }
