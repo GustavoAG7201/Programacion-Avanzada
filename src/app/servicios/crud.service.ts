@@ -48,4 +48,14 @@ export class CrudService {
         .catch(() => reject(false));
     });
   }
+
+  order(
+    coleccion: string,
+    campo: string,
+    tipo: 'asc' | 'desc'
+  ): Observable<any[]> {
+    return this.database
+      .collection(coleccion, (ref) => ref.orderBy(campo, tipo))
+      .valueChanges({ idField: 'id' });
+  }
 }
