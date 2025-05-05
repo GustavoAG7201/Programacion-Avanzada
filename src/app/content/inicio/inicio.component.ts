@@ -32,6 +32,8 @@ export class InicioComponent {
   orden: 'nombreArticulo' | 'marcaArticulo' = 'nombreArticulo';
   tipo: 'asc' | 'desc' = 'asc';
 
+  categoriaSeleccionada: string = '';
+
   ngOnInit() {
     this.cargarArticulos();
   }
@@ -111,10 +113,6 @@ export class InicioComponent {
   ordenar() {
     this.crud.order(this.coleccion, this.orden, this.tipo).subscribe((arts) => {
       this.articulos = arts;
-      console.log(
-        `Artículos ordenados por ${this.orden} (${this.tipo})`,
-        this.articulos
-      );
     });
   }
 }
