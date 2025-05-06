@@ -8,47 +8,50 @@
 >
   Agregar articulo
 </button>
-
-<!-- Seleccion de ordenamiento -->
-<div class="row g-3 mb-3 m-4">
-  <div class="col-auto">
-    <label class="form-label">Ordenar por:</label>
-    <select
-      class="form-select"
-      [(ngModel)]="orden"
-      (change)="ordenar()"
-      name="orden"
-    >
-      <option value="nombreArticulo">Nombre</option>
-      <option value="marcaArticulo">Marca</option>
-    </select>
-  </div>
-  <div class="col-auto">
-    <label class="form-label">Tipo:</label>
-    <select
-      class="form-select"
-      [(ngModel)]="tipo"
-      (change)="ordenar()"
-      name="tipo"
-    >
-      <option value="asc">Ascendente</option>
-      <option value="desc">Descendente</option>
-    </select>
+<!--! FILTROS Y ORDENAMIENTO -->
+<div class="row g-3 mb-3 m-md-4 mx-3">
+  <!-- Seleccion de ordenamiento -->
+  <div class="row g-3 mb-3 m-md-4 mx-3">
+    <div class="col-12 col-sm-6 col-lg-3">
+      <label class="form-label">Ordenar por:</label>
+      <select
+        class="form-select"
+        [(ngModel)]="orden"
+        (change)="ordenar()"
+        name="orden"
+      >
+        <option value="nombreArticulo">Nombre</option>
+        <option value="marcaArticulo">Marca</option>
+      </select>
+    </div>
+    <div class="col-12 col-sm-6 col-lg-3">
+      <label class="form-label">Tipo:</label>
+      <select
+        class="form-select"
+        [(ngModel)]="tipo"
+        (change)="ordenar()"
+        name="tipo"
+      >
+        <option value="asc">Ascendente</option>
+        <option value="desc">Descendente</option>
+      </select>
+    </div>
+    <div class="col-12 col-sm-6 col-lg-3">
+      <label class="form-label">Filtrar por categoría:</label>
+      <select class="form-select" [(ngModel)]="filtro" (change)="filtrar()">
+        <option value="">-- Selecciona categoría --</option>
+        <option value="Samsung">Samsung</option>
+        <option value="Redragon">Redragon</option>
+        <option value="JBL">JBL</option>
+        <option value="Amazfit">Amazfit</option>
+        <option value="Xiaomi">Xiaomi</option>
+        <option value="TP-Link">TP-Link</option>
+        <option value="Anker">Anker</option>
+        <option value="HP">HP</option>
+      </select>
+    </div>
   </div>
 </div>
-
-<!-- filtro -->
-<select [(ngModel)]="filtro" (change)="filtrar()" class="form-select-sm m-4">
-  <option value="">-- Selecciona categoría --</option>
-  <option value="Samsung">Samsung</option>
-  <option value="Redragon">Redragon</option>
-  <option value="JBL">JBL</option>
-  <option value="Amazfit">Amazfit</option>
-  <option value="Xiaomi">Xiaomi</option>
-  <option value="TP-Link">TP-Link</option>
-  <option value="Anker">Anker</option>
-  <option value="HP">HP</option>
-</select>
 
 <!-- Modal -->
 <div
@@ -58,22 +61,11 @@
   aria-labelledby="exampleModalLabel"
   aria-hidden="true"
 >
-  <div class="modal-dialog">
+  <div class="modal-dialog modal-dialog-centered modal-lg">
     <div class="modal-content">
       <div class="modal-header">
-        <h1
-          class="modal-title fs-5"
-          id="exampleModalLabel"
-          *ngIf="proceso_agregar"
-        >
-          Agregar articulo
-        </h1>
-        <h1
-          class="modal-title fs-5"
-          id="exampleModalLabel"
-          *ngIf="proceso_editar"
-        >
-          Editar articulo
+        <h1 class="modal-title fs-5" id="exampleModalLabel">
+          {{ proceso_agregar ? "Agregar artículo" : "Editar artículo" }}
         </h1>
         <button
           type="button"
@@ -84,187 +76,206 @@
       </div>
       <div class="modal-body">
         <form>
-          <div class="mb-3">
-            <label class="form-label">Nombre:</label>
-            <input
-              type="text"
-              name="nombreArticulo"
-              [(ngModel)]="form.nombreArticulo"
-              class="form-control"
-            />
-          </div>
-          <div class="mb-3">
-            <label class="form-label">Descripcion:</label>
-            <input
-              type="text"
-              name="descripcionArticulo"
-              [(ngModel)]="form.descripcionArticulo"
-              class="form-control"
-            />
-          </div>
-          <div class="mb-3">
-            <label class="form-label">Categoria:</label>
-            <input
-              type="text"
-              name="categoriaArticulo"
-              [(ngModel)]="form.categoriaArticulo"
-              class="form-select"
-            />
-          </div>
-          <div class="mb-3">
-            <label class="form-label">Marca:</label>
-            <input
-              type="text"
-              name="marcaArticulo"
-              [(ngModel)]="form.marcaArticulo"
-              class="form-control"
-            />
-          </div>
-          <div class="mb-3">
-            <label class="form-label">Modelo:</label>
-            <input
-              type="text"
-              name="modeloArticulo"
-              [(ngModel)]="form.modeloArticulo"
-              class="form-control"
-            />
-          </div>
-          <div class="mb-3">
-            <label class="form-label">Precio</label>
-            <input
-              type="number"
-              name="precioArticulo"
-              [(ngModel)]="form.precioArticulo"
-              class="form-control"
-            />
-          </div>
-          <div class="mb-3">
-            <label class="form-label">Stock</label>
-            <input
-              type="number"
-              name="stockArticulo"
-              [(ngModel)]="form.stockArticulo"
-              class="form-control"
-            />
-          </div>
-          <div class="mb-3">
-            <label for="formFile" class="form-label"
-              >Selecciona una imagen</label
-            >
-            <input
-              type="text"
-              name="imagenArticulo"
-              [(ngModel)]="form.imagenArticulo"
-              placeholder="Ingrese URL de la imagen"
-            />
-          </div>
-          <div class="mb-3">
-            <label for="garantia" class="form-label">Tiempo de Garantía</label>
-            <select
-              class="form-select"
-              name="garantiaArticulo"
-              [(ngModel)]="form.garantiaArticulo"
-              id="garantia"
-            >
-              <option [value]="3">3 meses</option>
-              <option [value]="6">6 meses</option>
-              <option [value]="12">1 año</option>
-              <option [value]="24">2 años</option>
-              <option [value]="36">3 años</option>
-            </select>
-          </div>
-          <div class="mb-3">
-            <label class="form-label">Numero de serie:</label>
-            <input
-              type="text"
-              name="numSerieArticulo"
-              [(ngModel)]="form.numSerieArticulo"
-              class="form-control"
-            />
+          <div class="row g-3">
+            <!-- Fila 1 -->
+            <div class="col-12 col-md-6">
+              <label class="form-label">Nombre:</label>
+              <input
+                type="text"
+                name="nombreArticulo"
+                [(ngModel)]="form.nombreArticulo"
+                class="form-control"
+              />
+            </div>
+
+            <div class="col-12 col-md-6">
+              <label class="form-label">Descripción:</label>
+              <input
+                type="text"
+                name="descripcionArticulo"
+                [(ngModel)]="form.descripcionArticulo"
+                class="form-control"
+              />
+            </div>
+
+            <!-- Fila 2 -->
+            <div class="col-12 col-md-6">
+              <label class="form-label">Categoría:</label>
+              <input
+                type="text"
+                name="categoriaArticulo"
+                [(ngModel)]="form.categoriaArticulo"
+                class="form-control"
+              />
+            </div>
+
+            <div class="col-12 col-md-6">
+              <label class="form-label">Marca:</label>
+              <input
+                type="text"
+                name="marcaArticulo"
+                [(ngModel)]="form.marcaArticulo"
+                class="form-control"
+              />
+            </div>
+
+            <!-- Fila 3 -->
+            <div class="col-12 col-md-6">
+              <label class="form-label">Modelo:</label>
+              <input
+                type="text"
+                name="modeloArticulo"
+                [(ngModel)]="form.modeloArticulo"
+                class="form-control"
+              />
+            </div>
+
+            <div class="col-12 col-md-6">
+              <label class="form-label">Precio:</label>
+              <input
+                type="number"
+                name="precioArticulo"
+                [(ngModel)]="form.precioArticulo"
+                class="form-control"
+              />
+            </div>
+
+            <!-- Fila 4 -->
+            <div class="col-12 col-md-6">
+              <label class="form-label">Stock:</label>
+              <input
+                type="number"
+                name="stockArticulo"
+                [(ngModel)]="form.stockArticulo"
+                class="form-control"
+              />
+            </div>
+
+            <div class="col-12 col-md-6">
+              <label class="form-label">Imagen (URL):</label>
+              <input
+                type="text"
+                name="imagenArticulo"
+                [(ngModel)]="form.imagenArticulo"
+                class="form-control"
+                placeholder="Ingrese URL de la imagen"
+              />
+            </div>
+
+            <!-- Fila 5 -->
+            <div class="col-12 col-md-6">
+              <label class="form-label">Garantía:</label>
+              <select
+                class="form-select"
+                name="garantiaArticulo"
+                [(ngModel)]="form.garantiaArticulo"
+              >
+                <option [value]="3">3 meses</option>
+                <option [value]="6">6 meses</option>
+                <option [value]="12">1 año</option>
+                <option [value]="24">2 años</option>
+                <option [value]="36">3 años</option>
+              </select>
+            </div>
+
+            <div class="col-12 col-md-6">
+              <label class="form-label">Número de serie:</label>
+              <input
+                type="text"
+                name="numSerieArticulo"
+                [(ngModel)]="form.numSerieArticulo"
+                class="form-control"
+              />
+            </div>
           </div>
         </form>
       </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+      <div class="modal-footer d-flex gap-2">
+        <button
+          type="button"
+          class="btn btn-secondary flex-grow-1 flex-md-grow-0"
+          data-bs-dismiss="modal"
+        >
           Cerrar
         </button>
         <button
           type="button"
-          class="btn btn-primary"
-          (click)="insertarArticulo(); cargarArticulos()"
-          *ngIf="proceso_agregar"
+          class="btn btn-primary flex-grow-1 flex-md-grow-0"
+          (click)="
+            proceso_agregar ? insertarArticulo() : actualizar();
+            cargarArticulos()
+          "
         >
-          Guardar
-        </button>
-        <button
-          type="button"
-          class="btn btn-primary"
-          (click)="actualizar(); cargarArticulos()"
-          *ngIf="proceso_editar"
-        >
-          Actualizar
+          {{ proceso_agregar ? "Guardar" : "Actualizar" }}
         </button>
       </div>
     </div>
   </div>
 </div>
+<div class="container m-md-4 mx-3">
+  <h2 class="mb-3">Lista de Artículos</h2>
 
-<!-- Consultar articulos de la base de datos -->
-<!--** PRUEBA -->
-<div class="container m-4">
-  <h2>Lista de Artículos</h2>
-
-  <!-- Mostrar artículos -->
-
-  <table class="table table-respomsive table-bordered table-hover mt-3">
-    <thead class="table-info">
-      <tr>
-        <th>Nombre:</th>
-        <th>Descripcion:</th>
-        <th>Categoria:</th>
-        <th>Marca:</th>
-        <th>Modelo:</th>
-        <th>Precio:</th>
-        <th>Stock:</th>
-        <th>Numero de serie:</th>
-        <th>Garantia:</th>
-        <th>Imagen:</th>
-        <th>Opciones:</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let articulo of articulos">
-        <td>{{ articulo.nombreArticulo }}</td>
-        <td>{{ articulo.descripcionArticulo }}</td>
-        <td>{{ articulo.categoriaArticulo }}</td>
-        <td>{{ articulo.marcaArticulo }}</td>
-        <td>{{ articulo.modeloArticulo }}</td>
-        <td>{{ articulo.precioArticulo }}</td>
-        <td>{{ articulo.stockArticulo }}</td>
-        <td>{{ articulo.numSerieArticulo }}</td>
-        <td>{{ articulo.garantiaArticulo }}</td>
-        <td>
-          <img
-            *ngIf="articulo.imagenArticulo"
-            [src]="articulo.imagenArticulo"
-            alt="Imagen del artículo"
-            width="100"
-          />
-        </td>
-        <td>
-          <button
-            class="btn btn-warning"
-            (click)="editar(articulo)"
-            data-bs-toggle="modal"
-            data-bs-target="#exampleModal"
-          >
-            Editar
-          </button>
-          <button class="btn btn-warning mt-5" (click)="eliminar(articulo.id)">
-            Eliminar
-          </button>
-        </td>
-      </tr>
-    </tbody>
-  </table>
+  <div class="table-responsive">
+    <table class="table table-bordered table-hover align-middle">
+      <thead class="table-info">
+        <tr>
+          <th class="d-none d-md-table-cell">Nombre</th>
+          <th>Descripción</th>
+          <th>Categoría</th>
+          <th class="d-none d-sm-table-cell">Marca</th>
+          <th class="d-none d-lg-table-cell">Modelo</th>
+          <th>Precio</th>
+          <th class="d-none d-xl-table-cell">Stock</th>
+          <th class="d-none d-xxl-table-cell">Serie</th>
+          <th>Garantía</th>
+          <th>Imagen</th>
+          <th>Opciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let articulo of articulos">
+          <td class="d-none d-md-table-cell">{{ articulo.nombreArticulo }}</td>
+          <td class="text-wrap" style="min-width: 250px">
+            {{ articulo.descripcionArticulo }}
+          </td>
+          <td>{{ articulo.categoriaArticulo }}</td>
+          <td class="d-none d-sm-table-cell">{{ articulo.marcaArticulo }}</td>
+          <td class="d-none d-lg-table-cell">{{ articulo.modeloArticulo }}</td>
+          <td>{{ articulo.precioArticulo | currency }}</td>
+          <td class="d-none d-xl-table-cell">{{ articulo.stockArticulo }}</td>
+          <td class="d-none d-xxl-table-cell">
+            {{ articulo.numSerieArticulo }}
+          </td>
+          <td>{{ articulo.garantiaArticulo }} meses</td>
+          <td>
+            <img
+              *ngIf="articulo.imagenArticulo"
+              [src]="articulo.imagenArticulo"
+              class="img-fluid"
+              style="max-width: 80px"
+              alt="Imagen artículo"
+            />
+          </td>
+          <td>
+            <div class="d-grid gap-2">
+              <button
+                class="btn btn-warning btn-sm"
+                (click)="editar(articulo)"
+                data-bs-toggle="modal"
+                data-bs-target="#exampleModal"
+              >
+                Editar
+              </button>
+              <button
+                class="btn btn-danger btn-sm mt-md-0 mt-2"
+                (click)="eliminar(articulo.id)"
+              >
+                Eliminar
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 </div>
