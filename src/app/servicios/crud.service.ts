@@ -58,4 +58,10 @@ export class CrudService {
       .collection(coleccion, (ref) => ref.orderBy(campo, tipo))
       .valueChanges({ idField: 'id' });
   }
+
+  filter(coleccion: string, campo: string, valor: string): Observable<any[]> {
+    return this.database
+      .collection(coleccion, (ref) => ref.where(campo, '==', valor))
+      .valueChanges({ idField: 'id' });
+  }
 }

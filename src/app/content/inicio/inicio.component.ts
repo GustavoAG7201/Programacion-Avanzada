@@ -34,6 +34,9 @@ export class InicioComponent {
 
   categoriaSeleccionada: string = '';
 
+  campo: string = '';
+  filtro: string = '';
+
   ngOnInit() {
     this.cargarArticulos();
   }
@@ -114,5 +117,19 @@ export class InicioComponent {
     this.crud.order(this.coleccion, this.orden, this.tipo).subscribe((arts) => {
       this.articulos = arts;
     });
+  }
+
+  filtrar() {
+    this.campo = 'marcaArticulo';
+
+    if (!this.filtro) {
+      this.cargarArticulos();
+    } else {
+      this.crud
+        .filter(this.coleccion, this.campo, this.filtro)
+        .subscribe((response: any[]) => {
+          this.articulos = response;
+        });
+    }
   }
 }

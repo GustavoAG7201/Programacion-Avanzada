@@ -37,6 +37,19 @@
   </div>
 </div>
 
+<!-- filtro -->
+<select [(ngModel)]="filtro" (change)="filtrar()" class="form-select-sm m-4">
+  <option value="">-- Selecciona categoría --</option>
+  <option value="Samsung">Samsung</option>
+  <option value="Redragon">Redragon</option>
+  <option value="JBL">JBL</option>
+  <option value="Amazfit">Amazfit</option>
+  <option value="Xiaomi">Xiaomi</option>
+  <option value="TP-Link">TP-Link</option>
+  <option value="Anker">Anker</option>
+  <option value="HP">HP</option>
+</select>
+
 <!-- Modal -->
 <div
   class="modal fade"
