@@ -16,6 +16,8 @@ import { Examen2Component } from './content/examen2/examen2.component';
 import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { CrudService } from './servicios/crud.service';
+import { Sesion } from './sesion/sesion';
+import { Registro } from './registro/registro';
 const appRoutes: Routes = [
   { path: '', component: InicioComponent },
   { path: 'inicio', component: InicioComponent },
@@ -32,6 +34,8 @@ const appRoutes: Routes = [
     InicioComponent,
     PortafolioComponent,
     Examen2Component,
+    Sesion,
+    Registro,
   ],
   imports: [
     BrowserModule,
